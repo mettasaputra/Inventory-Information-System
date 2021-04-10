@@ -32,4 +32,11 @@ class Master extends CI_Controller
         $x['data'] = $this->usermodel->get_data_user();
         $this->load->view('DataUserView', $x);
     }
+
+
+    public function karyawan()
+    {
+        $x['dt'] = $this->mastermodel->get_data_karyawan();
+        $this->load->view('DataKaryawanView', $x);
+    }
 }

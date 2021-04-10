@@ -47,4 +47,19 @@ class MasterModel extends CI_Model
     {
         return $this->db->query("SELECT karyawan.*, divisi.* FROM karyawan JOIN divisi ON karyawan.id_divisi = divisi.id_divisi");
     }
+
+    function input_karyawan($divisi, $nama)
+    {
+        $this->db->query("INSERT INTO karyawan(id_divisi, nama_karyawan) VALUES ('$divisi','$nama')");
+    }
+
+    function update_karyawan($id, $divisi, $nama)
+    {
+        $this->db->query("UPDATE karyawan SET id_divisi='$divisi', nama_karyawan='$nama' WHERE id_karyawan='$id'");
+    }
+
+    function delete_karyawan($id)
+    {
+        $this->db->query("DELETE FROM karyawan WHERE id_karyawan='$id'");
+    }
 }
