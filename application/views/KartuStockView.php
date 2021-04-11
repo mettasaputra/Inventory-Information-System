@@ -15,14 +15,37 @@
     <?php $this->load->view('partials/nav'); ?>
     <div class="container-fluid">
         <div class="table-responsive">
-            <table class="table table-sm">
+            <table class="table table-sm table-bordered">
                 <thead>
-                    <th>Tgl</th>
-                    <th>Keterangan</th>
-                    <th>Masuk</th>
-                    <th>Keluar</th>
-                    <th>Sisa</th>
+                    <th class="text-center">Tgl</th>
+                    <th class="text-center">Keterangan</th>
+                    <th class="text-center">Masuk</th>
+                    <th class="text-center">Keluar</th>
+                    <th class="text-center">Saldo</th>
                 </thead>
+                <tbody>
+                    <?php
+                    $saldo = 0;
+                    foreach ($data->result_array() as $a) :
+                        $tgl = date("d/m/Y", strtotime($a['tanggal']));
+                        $ket = $a['keterangan'];
+                        $jmlh = $a['qty'];
+                        $saldo += $jmlh;
+                    ?>
+                        <tr>
+                            <td class="text-center"><?= $tgl ?></td>
+                            <td><?= $ket ?></td>
+                            <?php if ($jmlh < 0) : ?>
+                                <td></td>
+                                <td class="text-center"><?= $jmlh ?></td>
+                            <?php else : ?>
+                                <td class="text-center"><?= $jmlh ?></td>
+                                <td></td>
+                            <?php endif; ?>
+                            <td class="text-center"><?= $saldo ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
         </div>
     </div>

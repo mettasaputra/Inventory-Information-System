@@ -29,4 +29,11 @@ class Barang extends CI_Controller
         $this->mastermodel->delete_data($id);
         redirect('master/barang');
     }
+
+    public function history()
+    {
+        $id = $this->input->get('id');
+        $x['data'] = $this->mastermodel->kartu_stok($id);
+        $this->load->view('KartuStockView', $x);
+    }
 }

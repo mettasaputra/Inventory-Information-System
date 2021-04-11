@@ -33,22 +33,10 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Karyawan</label>
+                                <label class="col-sm-3 col-form-label">Atas Nama</label>
                                 <div class="col-sm-9">
-                                    <select name="karyawan" class="form-control" value="<?= $this->session->userdata('karyawan') ?>">
-                                        <?php
-                                        $divisi = $this->db->query("SELECT * FROM karyawan");
-                                        foreach ($divisi->result_array() as $div) :
-                                            $id = $div['id_karyawan'];
-                                            $nm = $div['nama_karyawan'];
-                                        ?>
-                                            <?php if ($this->session->userdata('karyawan') == $id) : ?>
-                                                <option value="<?= $id ?>" selected><?= $nm ?></option>
-                                            <?php else : ?>
-                                                <option value="<?= $id ?>"><?= $nm ?></option>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
-                                    </select>
+                                    <input type="text" value="<?= $this->session->userdata('idadmin') ?>" name="karyawan" hidden>
+                                    <input type="text" value="<?= $this->session->userdata('nama') ?>" readonly class="form-control form-control-sm">
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -13,6 +13,14 @@ class MasterModel extends CI_Model
         return $this->db->query("SELECT barang.* FROM barang WHERE barang.id_barang = '$kode' ORDER BY barang.kode_barang ASC");
     }
 
+    function kartu_stok($id)
+    {
+        return $this->db->query("SELECT * from (select date(`pengeluaran`.`tanggal`) as tanggal ,concat(`pengeluaran`.`jenis_pengeluaran`,',',detail_pengeluaran.keterangan) as keterangan ,-`detail_pengeluaran`.`jumlah` 
+        as qty from pengeluaran join detail_pengeluaran on pengeluaran.id_pengeluaran = detail_pengeluaran.id_pengeluaran where detail_pengeluaran.id_barang ='$id' union ALL
+        SELECT date(`penerimaan`.`tanggal`) as tanggal , concat(penerimaan.jenis_penerimaan,',',detail_penerimaan.keterangan) as keterangan ,detail_penerimaan.jumlah as qty 
+        from penerimaan join detail_penerimaan on penerimaan.id_penerimaan = detail_penerimaan.id_penerimaan where detail_penerimaan.id_barang ='$id')a order by a.tanggal asc , a.qty DESC");
+    }
+
     function input_data($kode, $nama, $kat, $satuan)
     {
         $this->db->query("INSERT INTO barang(kode_barang, nama_barang, id_kategori,satuan,stok) VALUES ('$kode','$nama','$kat','$satuan',0)");

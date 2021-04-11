@@ -5,7 +5,7 @@ class TransaksiModel extends CI_Model
 {
     function input_penerimaan($tgl, $sup, $ket)
     {
-        $this->db->query("INSERT INTO penerimaan (tanggal, id_supplier, keterangan, jenis_penerimaan) VALUES ('$tgl','$sup','$ket','Supplier')");
+        $this->db->query("INSERT INTO penerimaan (tanggal, id_supplier, keterangan, jenis_penerimaan) VALUES ('$tgl','$sup','$ket','Penerimaan Barang dari Supplier')");
         foreach ($this->cart->contents() as $item) {
             $id = $this->get_id();
             $idbrg = $item['id'];
@@ -18,7 +18,7 @@ class TransaksiModel extends CI_Model
 
     function input_opsional($tgl, $karyawan, $ket)
     {
-        $this->db->query("INSERT INTO penerimaan (tanggal, id_karyawan, keterangan, jenis_penerimaan) VALUES ('$tgl','$karyawan','$ket','Opsional')");
+        $this->db->query("INSERT INTO penerimaan (tanggal, id_karyawan, keterangan, jenis_penerimaan) VALUES ('$tgl','$karyawan','$ket','Penerimaan Opsional')");
         foreach ($this->cart->contents() as $item) {
             $id = $this->get_id();
             $idbrg = $item['id'];
@@ -97,7 +97,7 @@ class TransaksiModel extends CI_Model
 
     function input_pengeluaran($tgl, $karyawan, $ket)
     {
-        $this->db->query("INSERT INTO pengeluaran (tanggal, request_by, keterangan, jenis_pengeluaran,status) VALUES ('$tgl','$karyawan','$ket','permintaan',1)");
+        $this->db->query("INSERT INTO pengeluaran (tanggal, request_by, keterangan, jenis_pengeluaran,status) VALUES ('$tgl','$karyawan','$ket','Permintaan Karyawan}',1)");
         foreach ($this->cart->contents() as $item) {
             $id = $this->get_id_pengeluaran();
             $idbrg = $item['id'];
@@ -117,7 +117,7 @@ class TransaksiModel extends CI_Model
 
     function input_pengeluaran_opsional($tgl, $ket)
     {
-        $this->db->query("INSERT INTO pengeluaran (tanggal, keterangan, jenis_pengeluaran, status) VALUES ('$tgl','$ket','opsional',1)");
+        $this->db->query("INSERT INTO pengeluaran (tanggal, keterangan, jenis_pengeluaran, status) VALUES ('$tgl','$ket','Pengeluaran Opsional',1)");
         foreach ($this->cart->contents() as $item) {
             $id = $this->get_id_pengeluaran();
             $idbrg = $item['id'];

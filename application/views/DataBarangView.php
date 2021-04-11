@@ -130,7 +130,7 @@
                                 <td class="text-center align-items-middle"><?= $stok ?></td>
                             <?php endif; ?>
                             <td class="text-center align-items-middle">
-                                <a href="" class="btn btn-sm btn-primary">History</a>
+                                <a href="<?= base_url() . 'barang/history?id=' . $id ?>" class="btn btn-sm btn-primary">History</a>
                                 <a href="<?= base_url() . 'barang/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
                             </td>
                         </tr>
