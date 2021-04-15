@@ -15,7 +15,7 @@
 <body>
     <div class="table-responsive">
         <table class="table table-sm table-bordered">
-            <thead>
+            <thead class="bg-warning">
                 <th class="text-center">No</th>
                 <th class="text-center">Kode Barang</th>
                 <th class="text-center">Nama Barang</th>
@@ -33,7 +33,7 @@
                     $kode = $a['kode_barang'];
                     $nama = $a['nama_barang'];
                     $unit = $a['satuan'];
-                    $awal = $a['stokawal'];
+                    $awal = $a['qtyterima1'] - $a['qtykeluar1'];
                     $terima = $a['qtyterima'];
                     $keluar = $a['qtykeluar'];
                     $akhir = $awal + ($terima - $keluar);
