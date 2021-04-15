@@ -97,7 +97,7 @@ class Penerimaan extends CI_Controller
     function opsional()
     {
         $data['brg'] = $this->mastermodel->get_data_barang();
-        $data['divisi'] = $this->mastermodel->get_data_karyawan();
+        $data['kyw'] = $this->mastermodel->get_data_karyawan();
         $this->load->view('POpsionalView', $data);
     }
 

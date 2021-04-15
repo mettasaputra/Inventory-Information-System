@@ -10,7 +10,7 @@ class MasterModel extends CI_Model
 
     function get_detail_barang($kode)
     {
-        return $this->db->query("SELECT barang.* FROM barang WHERE barang.id_barang = '$kode' ORDER BY barang.kode_barang ASC");
+        return $this->db->query("SELECT barang.*, kategori.nama_kategori FROM barang JOIN kategori ON barang.id_kategori = kategori.id_kategori WHERE barang.id_barang = '$kode' ORDER BY barang.kode_barang ASC");
     }
 
     function kartu_stok($id)

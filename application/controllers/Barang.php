@@ -33,6 +33,7 @@ class Barang extends CI_Controller
     public function history()
     {
         $id = $this->input->get('id');
+        $x['brg'] = $this->mastermodel->get_detail_barang($id);
         $x['data'] = $this->mastermodel->kartu_stok($id);
         $this->load->view('KartuStockView', $x);
     }

@@ -13,7 +13,8 @@
 </head>
 
 <body>
-    <?php $this->load->view('partials/nav'); ?>
+    <?php $this->load->view('partials/nav');
+    ?>
     <div class="container-fluid">
         <div class="row my-3">
             <div class="col-md-6">

@@ -12,12 +12,30 @@
 </head>
 
 <body>
-    <?php $this->load->view('partials/nav'); ?>
-    <div class="container-fluid">
+    <?php $this->load->view('partials/nav');
+    $a = $brg->row_array();
+    ?>
+    <div class="container-fluid my-4">
+        <h3 class="text-center">KARTU STOCK</h3>
+        <table>
+            <tr>
+                <td class="font-weight-bold" width="180px">Kategori</td>
+                <td> : <?= $a['nama_kategori'] ?></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Nama Barang</td>
+                <td> : <?= $a['nama_barang'] ?></td>
+            </tr>
+            <tr>
+                <td class="font-weight-bold">Satuan</td>
+                <td> : <?= $a['satuan'] ?></td>
+            </tr>
+        </table>
+        <hr />
         <div class="table-responsive">
-            <table class="table table-sm table-bordered">
-                <thead>
-                    <th class="text-center">Tgl</th>
+            <table class="table table-sm table-bordered table-striped">
+                <thead class="bg-dark text-white">
+                    <th class="text-center" width="15%">Tgl</th>
                     <th class="text-center">Keterangan</th>
                     <th class="text-center">Masuk</th>
                     <th class="text-center">Keluar</th>
