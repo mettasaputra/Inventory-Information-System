@@ -56,14 +56,13 @@ class Permintaan extends CI_Controller
         redirect('permintaan');
     }
 
-    function remove($data)
+    function remove()
     {
-        // $row_id = $this->uri->segment(4);
-        $this->cart->update(array(
-            'rowid'   => $data,
-            'qty'     => 0
-        ));
-        redirect('permintaan');
+        $id = $this->input->post('idpermintaan');
+        $ids = $this->session->userdata('idpermintaan');
+        $idbrg = $this->input->post('id');
+        $this->transaksimodel->delete($idbrg, $id);
+        redirect('permintaan/detail?id=' . $ids);
     }
 
     function permintaan_karyawan()
@@ -91,19 +90,26 @@ class Permintaan extends CI_Controller
     function detail()
     {
         $id = $this->input->get('id');
-        $x['data'] = $this->transaksimodel->detail_permintaan($id);
-        $a = $x['data']->row_array();
-        $data = array(
-            'id'      => $a['id_barang'],
-            'kode'    => $a['kode_barang'],
-            'qty'     => $a['jumlah'],
-            'price'   => 0,
-            'name'    => $a['nama_barang'],
-            'units'   => $a['satuan'],
-            'comment' => $a['keterangan'],
-        );
-        $this->cart->show($data);
-        // $abc = $this->transaksimodel->detail_permintaan($id);
+        $x['req'] = $this->transaksimodel->permintaan($id);
+        $row = $this->transaksimodel->permintaan($id);
+        $result = $row->row_array();
+        $this->session->set_userdata('tgl', $result['tanggal_kebutuhan']);
+        $this->session->set_userdata('kyw', $result['request_by']);
+        $this->session->set_userdata('ket', $result['ket']);
+        $dt = $this->transaksimodel->detail_permintaan($id);
+        $this->cart->destroy();
+        foreach ($dt->result_array() as $a) {
+            $data = array(
+                'id'      => $a['id_barang'],
+                'kode'    => $a['kode_barang'],
+                'qty'     => $a['jumlah'],
+                'price'   => 0,
+                'name'    => $a['nama_barang'],
+                'units'   => $a['satuan'],
+                'comment' => $a['keterangan'],
+            );
+            $this->cart->insert($data);
+        }
         $this->load->view('AccKaryawanView', $x);
     }
 
@@ -112,8 +118,8 @@ class Permintaan extends CI_Controller
         $cek = count($this->cart->contents());
         if ($cek > 0) {
             $tgl = $this->session->userdata('tgl');
-            $karyawan = $this->session->userdata('karyawan');
-            $keterangan = $this->session->userdata('keterangan');
+            $karyawan = $this->session->userdata('kyw');
+            $keterangan = $this->session->userdata('ket');
             $this->transaksimodel->input_pengeluaran($tgl, $karyawan, $keterangan);
             $this->session->unset_userdata('tgl');
             $this->session->unset_userdata('karyawan');

@@ -67,7 +67,6 @@ class TransaksiModel extends CI_Model
             $qty = $item['qty'];
             $comment = $item['comment'];
             $this->db->query("INSERT INTO detail_permintaan (id_permintaan, id_barang, jumlah, keterangan) VALUES ('$id','$idbrg','$qty','$comment')");
-            // $this->db->query("UPDATE barang SET stok=stok+$qty WHERE id_barang='$idbrg'");
         }
     }
 
@@ -84,9 +83,26 @@ class TransaksiModel extends CI_Model
         FROM permintaan_karyawan JOIN user ON permintaan_karyawan.request_by = user.id_user");
     }
 
+    function permintaan($id)
+    {
+        return $this->db->query("SELECT permintaan_karyawan.id_permintaan,permintaan_karyawan.request_by,permintaan_karyawan.tanggal_kebutuhan, permintaan_karyawan.keterangan as ket, permintaan_karyawan.created_at, user.nama_user 
+        FROM permintaan_karyawan JOIN user ON permintaan_karyawan.request_by = user.id_user WHERE permintaan_karyawan.id_permintaan='$id'");
+    }
+
+    function delete($idbrg, $id)
+    {
+        $this->db->query("DELETE FROM detail_permintaan WHERE id_barang='$idbrg' AND id_permintaan='$id'");
+    }
+
+    // function detail_permintaan($id)
+    // {
+    //     return $this->db->query("SELECT detail_permintaan.*, barang.* FROM detail_permintaan JOIN barang
+    //     ON detail_permintaan.id_barang = barang.id_barang JOIN permintaan_karyawan ON permintaan_karyawan.id_permintaan = detail_permintaan.id_permintaan
+    //     WHERE permintaan_karyawan.id_permintaan = '$id'");
+    // }
     function detail_permintaan($id)
     {
-        return $this->db->query("SELECT permintaan_karyawan.*, permintaan_karyawan.keterangan as ket, DATE_FORMAT(permintaan_karyawan.tanggal_kebutuhan,'%m/%d/%Y') as tgl, 
+        return $this->db->query("SELECT permintaan_karyawan.*, permintaan_karyawan.keterangan as ket, permintaan_karyawan.keterangan as ket, DATE_FORMAT(permintaan_karyawan.tanggal_kebutuhan,'%m/%d/%Y') as tgl, 
         barang.*,
         detail_permintaan.jumlah, user.nama_user FROM permintaan_karyawan JOIN detail_permintaan
         ON permintaan_karyawan.id_permintaan = detail_permintaan.id_permintaan 
@@ -97,7 +113,7 @@ class TransaksiModel extends CI_Model
 
     function input_pengeluaran($tgl, $karyawan, $ket)
     {
-        $this->db->query("INSERT INTO pengeluaran (tanggal, request_by, keterangan, jenis_pengeluaran,status) VALUES ('$tgl','$karyawan','$ket','Permintaan Karyawan}',1)");
+        $this->db->query("INSERT INTO pengeluaran (tanggal, request_by, keterangan, jenis_pengeluaran) VALUES ('$tgl','$karyawan','$ket','Permintaan Karyawan')");
         foreach ($this->cart->contents() as $item) {
             $id = $this->get_id_pengeluaran();
             $idbrg = $item['id'];

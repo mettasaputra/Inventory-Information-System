@@ -13,7 +13,7 @@
 
 <body>
 	<?php $this->load->view('partials/nav'); ?>
-	<div class="container-fluid">
+	<div class="container">
 		<div class="table-responsive">
 			<table class="table table-sm table-bordered">
 				<thead>
@@ -42,7 +42,7 @@
 							<td><?= $tgl ?></td>
 							<td><?= $ket ?></td>
 							<td>
-								<a class="btn btn-sm btn-primary" href="<?= base_url() . 'permintaan/detail?id=' . $id ?>"><i class="fa fa-eye" aria-hidden="true"></i> Detail</a>
+								<a class="btn btn-sm btn-primary" id="tampilpmt" href="<?= base_url() . 'permintaan/detail?id=' . $id ?>"><i class="fa fa-eye" aria-hidden="true"></i> Detail</a>
 							</td>
 						</tr>
 					<?php endforeach; ?>
@@ -54,6 +54,11 @@
 	<script src="<?= base_url() . 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' ?>" type="text/javascript"></script>
 	<script src="<?= base_url() . 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' ?>" type="text/javascript"></script>
 	<script src="<?= base_url() . 'assets/vendor/datatables/datatables.min.js' ?>"></script>
+	<script>
+		$(document).ready(function() {
+			var tampil = document.getElementById('tampipmt');
+		})
+	</script>
 </body>
 
 </html>
