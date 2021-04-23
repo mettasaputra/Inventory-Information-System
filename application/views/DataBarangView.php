@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Barang</title>
+    <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/css/style.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
@@ -18,7 +19,7 @@
     <div class="container-fluid">
         <div class="row my-3">
             <div class="col-md-6">
-                <h4 class="font-weight-bold">Data Barang</h4>
+                <h4 class="font-weight-bold navy">Data Barang</h4>
             </div>
             <div class="col-md-6">
                 <button type="button" class="float-right btn btn-primary btn-sm" data-toggle="modal" data-target="#modelId">
@@ -32,7 +33,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Tambah Barang</h5>
+                        <h5 class="modal-title navy">Tambah Barang</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -87,7 +88,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
                             <input type="submit" value="Simpan" class="btn btn-primary btn-sm">
                         </div>
                     </form>
@@ -97,14 +98,14 @@
 
         <div class="table-responsive">
             <table class="table table-sm table-bordered table-striped">
-                <thead>
-                    <th class="text-center font-weight-normal">No</th>
-                    <th class="text-center font-weight-normal">Kode Barang</th>
-                    <th class="text-center font-weight-normal">Nama Barang</th>
-                    <th class="text-center font-weight-normal">Kategori</th>
-                    <th class="text-center font-weight-normal">Satuan</th>
-                    <th class="text-center font-weight-normal">Stok</th>
-                    <th class="text-center font-weight-normal">Opsi</th>
+                <thead class="bg-navy">
+                    <th>No</th>
+                    <th>Kode Barang</th>
+                    <th>Nama Barang</th>
+                    <th>Kategori</th>
+                    <th>Satuan</th>
+                    <th>Stok</th>
+                    <th>Opsi</th>
                 </thead>
                 <tbody>
                     <?php

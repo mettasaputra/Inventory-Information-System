@@ -6,13 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data User</title>
+    <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/css/style.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/select2/dist/css/select2.min.css' ?>">
     <style>
         .card {
-            height: 500px;
+            height: 490px;
         }
     </style>
 </head>
@@ -20,34 +21,34 @@
 <body>
     <?php $this->load->view('partials/nav'); ?>
     <div class="container-fluid mx-2">
-        <h4 class="my-3">Formulir Permintaan Barang</h4>
+        <h4 class="my-3 navy">Formulir Permintaan Barang</h4>
         <div class="row">
             <div class="col-md-5">
                 <div class="card rounded-0">
                     <div class="card-body">
                         <form action="<?= base_url() . 'permintaan/add_to_cart' ?>" method="POST">
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Tanggal</label>
-                                <div class="col-sm-9">
+                                <label class="col-sm-4 col-form-label">Tanggal</label>
+                                <div class="col-sm-8">
                                     <input type="date" class="form-control" name="tgl" value="<?= $this->session->userdata('tgl') ?>">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Atas Nama</label>
-                                <div class="col-sm-9">
+                                <label class="col-sm-4 col-form-label">Atas Nama</label>
+                                <div class="col-sm-8">
                                     <input type="text" value="<?= $this->session->userdata('idadmin') ?>" name="karyawan" hidden>
                                     <input type="text" value="<?= $this->session->userdata('nama') ?>" readonly class="form-control form-control-sm">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Keterangan</label>
-                                <div class="col-sm-9">
+                                <label class="col-sm-4 col-form-label">Keterangan</label>
+                                <div class="col-sm-8">
                                     <textarea name="keterangan" class="form-control orm-control-sm"><?= $this->session->userdata('keterangan') ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-sm-3 col-form-label">Nama Barang</label>
-                                <div class="col-sm-9">
+                                <label class="col-sm-4 col-form-label">Nama Barang</label>
+                                <div class="col-sm-8">
                                     <select name="brg" id="brg" class="form-control">
                                         <option disabled selected></option>
                                         <?php

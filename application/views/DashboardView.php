@@ -15,46 +15,44 @@
 <body>
 	<?php $this->load->view('partials/nav'); ?>
 	<div class="container-fluid my-3">
-		<div class="row mt-2">
-			<div class="card rounded-0 bg-light" style="height: 350px; overflow-y:auto">
-				<div class="card-body">
-					<h4 class="card-title navy">Daftar Permintaan</h4>
-					<div class="card-text">
-						<div class="table-responsive">
-							<table class="table table-sm table-bordered">
-								<thead class="bg-primary text-white">
-									<th class="text-center align-middle">No</th>
-									<th class="text-center align-middle">Tanggal Permintaan</th>
-									<th class="text-center align-middle">Nama Karyawan</th>
-									<th class="text-center align-middle">Tgl Dibutuhkan</th>
-									<th class="text-center align-middle">Keterangan</th>
-									<th class="text-center align-middle">Opsi</th>
-								</thead>
-								<tbody>
-									<?php
-									$no = 0;
-									foreach ($data->result_array() as $a) :
-										$no++;
-										$id = $a['id_permintaan'];
-										$user = $a['nama_user'];
-										$tglpermintaan = date("d-m-Y H:i", strtotime($a['created_at']));
-										$tgl = date("d-m-Y", strtotime($a['tanggal_kebutuhan']));
-										$ket = $a['ket'];
-									?>
-										<tr>
-											<td class="text-center align-middle"><?= $no ?></td>
-											<td class="text-center align-middle"><?= $tglpermintaan ?></td>
-											<td class="align-middle"><?= $user ?></td>
-											<td class="text-center align-middle"><?= $tgl ?></td>
-											<td class="align-middle"><?= $ket ?></td>
-											<td class="text-center align-middle">
-												<a class="btn btn-sm btn-primary" id="tampilpmt" href="<?= base_url() . 'permintaan/detail?id=' . $id ?>"><i class="fa fa-eye" aria-hidden="true"></i> Detail</a>
-											</td>
-										</tr>
-									<?php endforeach; ?>
-								</tbody>
-							</table>
-						</div>
+		<div class="card rounded-0 bg-light" style="height: 350px; overflow-y:auto">
+			<div class="card-body">
+				<h4 class="card-title navy">Daftar Permintaan</h4>
+				<div class="card-text">
+					<div class="table-responsive">
+						<table class="table table-sm table-bordered">
+							<thead class="bg-primary text-white">
+								<th class="text-center align-middle">No</th>
+								<th class="text-center align-middle">Tanggal Permintaan</th>
+								<th class="text-center align-middle">Nama Karyawan</th>
+								<th class="text-center align-middle">Tgl Dibutuhkan</th>
+								<th class="text-center align-middle">Keterangan</th>
+								<th class="text-center align-middle">Opsi</th>
+							</thead>
+							<tbody>
+								<?php
+								$no = 0;
+								foreach ($data->result_array() as $a) :
+									$no++;
+									$id = $a['id_permintaan'];
+									$user = $a['nama_user'];
+									$tglpermintaan = date("d-m-Y H:i", strtotime($a['created_at']));
+									$tgl = date("d-m-Y", strtotime($a['tanggal_kebutuhan']));
+									$ket = $a['ket'];
+								?>
+									<tr>
+										<td class="text-center align-middle"><?= $no ?></td>
+										<td class="text-center align-middle"><?= $tglpermintaan ?></td>
+										<td class="align-middle"><?= $user ?></td>
+										<td class="text-center align-middle"><?= $tgl ?></td>
+										<td class="align-middle"><?= $ket ?></td>
+										<td class="text-center align-middle">
+											<a class="btn btn-sm btn-primary" id="tampilpmt" href="<?= base_url() . 'permintaan/detail?id=' . $id ?>"><i class="fa fa-eye" aria-hidden="true"></i> Detail</a>
+										</td>
+									</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>

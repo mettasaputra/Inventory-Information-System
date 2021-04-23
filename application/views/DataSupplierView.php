@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Supplier</title>
+    <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/css/style.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
@@ -16,7 +17,7 @@
     <div class="container-fluid">
         <div class="row my-3">
             <div class="col-md-6">
-                <h4 class="font-weight-bold">Data Supplier</h4>
+                <h4 class="font-weight-bold navy">Data Supplier</h4>
             </div>
             <div class="col-md-6">
                 <button type="button" class="float-right btn btn-primary btn-sm" data-toggle="modal" data-target="#modelId">
@@ -61,7 +62,7 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
                                     <input type="submit" value="Simpan" class="btn btn-primary btn-sm">
                                 </div>
                             </form>
