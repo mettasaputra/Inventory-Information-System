@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data User</title>
+    <title>Form Permintaan</title>
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/css/style.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
@@ -20,7 +20,7 @@
 
 <body>
     <?php $this->load->view('partials/nav'); ?>
-    <div class="container-fluid mx-2">
+    <div class="container-fluid">
         <h4 class="my-3 navy">Formulir Permintaan Barang</h4>
         <div class="row">
             <div class="col-md-5">

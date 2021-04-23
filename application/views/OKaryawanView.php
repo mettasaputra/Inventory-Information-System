@@ -20,7 +20,7 @@
 
 <body>
     <?php $this->load->view('partials/nav'); ?>
-    <div class="container-fluid mx-2">
+    <div class="container-fluid">
         <h4 class="my-3 navy">Formulir Pengeluaran Barang</h4>
         <div class="row">
             <div class="col-md-5">

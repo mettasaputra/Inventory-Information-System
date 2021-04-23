@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data User</title>
+    <title>Form Permintaan</title>
+    <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/css/style.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
@@ -22,7 +23,7 @@
     $a = $req->row_array();
     ?>
     <div class="container-fluid">
-        <h4>Form Pengeluaran</h4>
+        <h4 class="navy my-3">Form Permintaan Barang</h4>
         <form action="<?= base_url() . 'permintaan/into_pengeluaran' ?>" method="POST">
             <div class="row">
                 <div class="col-md-5">
