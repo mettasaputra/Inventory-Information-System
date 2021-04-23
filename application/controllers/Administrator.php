@@ -43,6 +43,8 @@ class Administrator extends CI_Controller
     {
         if ($this->session->userdata('akses') == '1') {
             redirect('dashboard');
+        } elseif ($this->session->userdata('akses') == '3') {
+            redirect('permintaan');
         } else {
             echo "<script>
                 alert('Tidak Memiliki Akses');

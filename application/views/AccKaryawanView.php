@@ -31,7 +31,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Tanggal</label>
                                 <div class="col-sm-9">
-                                    <input value="<?= $a['id_permintaan'] ?>" readonly hidden>
+                                    <input name="id" value="<?= $a['id_permintaan'] ?>" readonly hidden>
                                     <input type="date" class="form-control" name="tgl" value="<?= $this->session->userdata('tgl') ?>" readonly>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
 
                                     </tbody>
                                 </table>
-                                <a href="<?php echo base_url() . 'permintaan/into_pengeluaran' ?>" class=" btn btn-primary btn-sm"><span class="fa fa-save"></span> Simpan</a>
+                                <a href="<?php echo base_url() . 'permintaan/into_pengeluaran?id=' . $a['id_permintaan'] ?>" class=" btn btn-primary btn-sm"><span class="fa fa-save"></span> Simpan</a>
                             </div>
                         </div>
                     </div>

@@ -116,6 +116,7 @@ class Permintaan extends CI_Controller
     function into_pengeluaran()
     {
         $cek = count($this->cart->contents());
+        $id = $this->input->get('id');
         if ($cek > 0) {
             $tgl = $this->session->userdata('tgl');
             $karyawan = $this->session->userdata('kyw');
@@ -126,7 +127,8 @@ class Permintaan extends CI_Controller
             $this->session->unset_userdata('keterangan');
             $this->cart->destroy();
 
-            redirect('permintaan/detail');
+            $this->transaksimodel->deletepermintaan($id);
+            redirect('dashboard');
         } else {
             echo "<script>
                 alert('Tidak ada data yang diinput!');

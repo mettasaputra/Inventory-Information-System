@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Penerimaan Barang</title>
+    <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/css/style.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
@@ -21,9 +22,8 @@
 <body>
     <?php $this->load->view('partials/nav'); ?>
     <div class="container my-3">
-        <h3 class="text-center text-dark">Dashboard Penerimaan</h3>
-        <hr />
-        <div class="row mt-3">
+        <h3 class="navy">Dashboard Penerimaan</h3>
+        <div class="row mt-2">
             <div class="col-md-3  mt-3">
                 <a href="<?= base_url() . 'penerimaan/supplier' ?>" class="text-decoration-none">
                     <div class="card rounded-0 bg-danger">

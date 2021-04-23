@@ -111,6 +111,12 @@ class TransaksiModel extends CI_Model
         WHERE permintaan_karyawan.id_permintaan = '$id'");
     }
 
+    function deletepermintaan($id)
+    {
+        $this->db->query("DELETE FROM permintaan_karyawan WHERE id_permintaan = '$id'");
+        $this->db->query("DELETE FROM detail_permintaan WHERE id_permintaan = '$id'");
+    }
+
     function input_pengeluaran($tgl, $karyawan, $ket)
     {
         $this->db->query("INSERT INTO pengeluaran (tanggal, request_by, keterangan, jenis_pengeluaran) VALUES ('$tgl','$karyawan','$ket','Permintaan Karyawan')");
