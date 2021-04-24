@@ -58,11 +58,10 @@ class Permintaan extends CI_Controller
 
     function remove()
     {
-        $id = $this->input->post('idpermintaan');
-        $ids = $this->session->userdata('idpermintaan');
-        $idbrg = $this->input->post('id');
+        $id = $this->input->get('id');
+        $idbrg = $this->input->get('idbrg');
         $this->transaksimodel->delete($idbrg, $id);
-        redirect('permintaan/detail?id=' . $ids);
+        redirect('permintaan/detail?id=' . $id);
     }
 
     function permintaan_karyawan()

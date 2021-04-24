@@ -32,7 +32,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Tanggal</label>
                                 <div class="col-sm-9">
-                                    <input name="id" value="<?= $a['id_permintaan'] ?>" readonly hidden>
+                                    <input name="ids" value="<?= $a['id_permintaan'] ?>" readonly hidden>
                                     <input type="date" class="form-control" name="tgl" value="<?= $this->session->userdata('tgl') ?>" readonly>
                                 </div>
                             </div>
@@ -79,7 +79,7 @@
                                                 <td class="align-items-middle text-center"><?= $items['units']; ?></td>
                                                 <td class="align-items-middle text-center"><?= $items['qty']; ?></td>
                                                 <td class="align-items-middle"><?= $items['comment']; ?></td>
-                                                <td class="align-items-middle text-center"><a href="<?php echo base_url() . 'permintaan/remove?id=' . $a['id_permintaan'] . 'idbrg=' . $items['id'] ?>" class="btn btn-info btn-sm"><span class="fa fa-close"></span> Batal</a></td>
+                                                <td class="align-items-middle text-center"><a href="<?php echo base_url() . 'permintaan/remove?id=' . $a['id_permintaan'] . '&idbrg=' . $items['id'] ?>" class="btn btn-danger btn-sm"><span class="fa fa-close"></span> Batal</a></td>
                                             </tr>
                                         <?php endforeach; ?>
 

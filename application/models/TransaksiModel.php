@@ -94,17 +94,11 @@ class TransaksiModel extends CI_Model
         $this->db->query("DELETE FROM detail_permintaan WHERE id_barang='$idbrg' AND id_permintaan='$id'");
     }
 
-    // function detail_permintaan($id)
-    // {
-    //     return $this->db->query("SELECT detail_permintaan.*, barang.* FROM detail_permintaan JOIN barang
-    //     ON detail_permintaan.id_barang = barang.id_barang JOIN permintaan_karyawan ON permintaan_karyawan.id_permintaan = detail_permintaan.id_permintaan
-    //     WHERE permintaan_karyawan.id_permintaan = '$id'");
-    // }
     function detail_permintaan($id)
     {
         return $this->db->query("SELECT permintaan_karyawan.*, permintaan_karyawan.keterangan as ket, permintaan_karyawan.keterangan as ket, DATE_FORMAT(permintaan_karyawan.tanggal_kebutuhan,'%m/%d/%Y') as tgl, 
         barang.*,
-        detail_permintaan.jumlah, user.nama_user FROM permintaan_karyawan JOIN detail_permintaan
+        detail_permintaan.jumlah, detail_permintaan.keterangan, user.nama_user FROM permintaan_karyawan JOIN detail_permintaan
         ON permintaan_karyawan.id_permintaan = detail_permintaan.id_permintaan 
         JOIN user ON permintaan_karyawan.request_by = user.id_user
         JOIN barang ON detail_permintaan.id_barang = barang.id_barang
