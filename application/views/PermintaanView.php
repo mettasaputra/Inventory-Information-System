@@ -19,7 +19,10 @@
 </head>
 
 <body>
-    <?php $this->load->view('partials/nav');
+    <?php
+    if ($this->session->userdata('akses') == '1') {
+        $this->load->view('partials/nav');
+    }
     $usr = $user->row_array() ?>
     <div class="container-fluid">
         <h4 class="my-3 navy">Formulir Permintaan Barang</h4>

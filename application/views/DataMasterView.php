@@ -84,7 +84,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="<?= base_url() . 'laporan' ?>" method="POST">
+                            <form action="<?= base_url() . 'laporan/laporandivisi' ?>" method="POST">
                                 <div class="modal-body">
                                     <select name="bln">
                                         <option value="4">April</option>
@@ -135,8 +135,15 @@
                                         </div>
                                         <div class="form-group">
                                             Bulan
-                                            <select name="idbrg" class="form-control form-control-sm">
-
+                                            <select name="bln" class="form-control form-control-sm">
+                                                <?php
+                                                $bln = $this->db->query("SELECT DATE_FORMAT(tanggal,'%m-%Y') as databulan, DATE_FORMAT(tanggal,'%M %Y') as bln FROM pengeluaran GROUP BY tanggal");
+                                                foreach ($bln->result_array() as $dt) :
+                                                    $bulan = $dt['databulan'];
+                                                    $nama = $dt['bln'];
+                                                ?>
+                                                    <option value="<?= $bulan ?>"><?= $nama ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>
                                     </form>

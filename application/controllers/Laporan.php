@@ -18,8 +18,8 @@ class Laporan extends CI_Controller
 
     public function laporanDivisi()
     {
-        $idbarang = $this->input->post('idbrg');
+        $bln = $this->input->post('bln');
         $iddivisi = $this->input->post('iddivisi');
-        $this->laporanmodel->laporanpemakaian($idbarang, $iddivisi);
+        $this->laporanmodel->laporanpemakaian($bln, $iddivisi);
     }
 }

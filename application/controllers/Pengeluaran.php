@@ -16,7 +16,11 @@ class Pengeluaran extends CI_Controller
 
     public function index()
     {
-        $this->load->view('PengeluaranView');
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $this->load->view('PengeluaranView');
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function get_detail_barang()
@@ -28,9 +32,13 @@ class Pengeluaran extends CI_Controller
 
     public function requestby()
     {
-        $data['brg'] = $this->mastermodel->get_data_barang();
-        $data['kyw'] = $this->mastermodel->get_data_karyawan();
-        $this->load->view('OKaryawanView', $data);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $data['brg'] = $this->mastermodel->get_data_barang();
+            $data['kyw'] = $this->mastermodel->get_data_karyawan();
+            $this->load->view('OKaryawanView', $data);
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function add_to_cart()

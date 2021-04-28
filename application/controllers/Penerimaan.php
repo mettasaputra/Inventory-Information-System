@@ -16,7 +16,11 @@ class Penerimaan extends CI_Controller
 
     public function index()
     {
-        $this->load->view('PenerimaanView');
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $this->load->view('PenerimaanView');
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function get_detail_barang()
@@ -28,9 +32,13 @@ class Penerimaan extends CI_Controller
 
     public function supplier()
     {
-        $data['brg'] = $this->mastermodel->get_data_barang();
-        $data['supplier'] = $this->mastermodel->get_data_supplier();
-        $this->load->view('PSupplierView', $data);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $data['brg'] = $this->mastermodel->get_data_barang();
+            $data['supplier'] = $this->mastermodel->get_data_supplier();
+            $this->load->view('PSupplierView', $data);
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function add_to_cart()
@@ -96,9 +104,13 @@ class Penerimaan extends CI_Controller
 
     function opsional()
     {
-        $data['brg'] = $this->mastermodel->get_data_barang();
-        $data['kyw'] = $this->mastermodel->get_data_karyawan();
-        $this->load->view('POpsionalView', $data);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $data['brg'] = $this->mastermodel->get_data_barang();
+            $data['kyw'] = $this->mastermodel->get_data_karyawan();
+            $this->load->view('POpsionalView', $data);
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function add_to_cart_opsional()
@@ -132,7 +144,6 @@ class Penerimaan extends CI_Controller
 
     function remove_data($dataopsional)
     {
-        // $row_id = $this->uri->segment(4);
         $this->cart->update(array(
             'rowid'   => $dataopsional,
             'qty'     => 0

@@ -20,6 +20,6 @@ class LaporanModel extends CI_Model
         JOIN barang ON detail_pengeluaran.id_barang = barang.id_barang
         JOIN karyawan ON karyawan.id_karyawan = pengeluaran.request_by
         JOIN divisi ON divisi.id_divisi = karyawan.id_divisi
-        WHERE DATE_FORMAT(pengeluaran.tanggal,'%m') = '$bln' AND divisi.id_divisi ='$iddivisi'");
+        WHERE DATE_FORMAT(pengeluaran.tanggal,'%m-%Y') = '$bln' AND divisi.id_divisi ='$iddivisi'");
     }
 }
