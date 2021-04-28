@@ -12,6 +12,7 @@ class Master extends CI_Controller
 
     public function index()
     {
+        $x['data'] = $this->mastermodel->get_data_barang();
         $this->load->view('DataMasterView');
     }
 

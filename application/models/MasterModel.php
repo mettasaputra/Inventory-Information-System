@@ -70,4 +70,10 @@ class MasterModel extends CI_Model
     {
         $this->db->query("DELETE FROM karyawan WHERE id_karyawan='$id'");
     }
+
+    function get_user()
+    {
+        $nama = $this->session->userdata('nama');
+        return $this->db->query("SELECT * FROM karyawan WHERE nama_karyawan = '$nama'");
+    }
 }

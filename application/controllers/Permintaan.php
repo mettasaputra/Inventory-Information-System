@@ -16,6 +16,7 @@ class Permintaan extends CI_Controller
 
     public function index()
     {
+        $x['user'] = $this->mastermodel->get_user();
         $x['brg'] = $this->mastermodel->get_data_barang();
         $this->load->view('PermintaanView', $x);
     }
@@ -109,6 +110,7 @@ class Permintaan extends CI_Controller
             );
             $this->cart->insert($data);
         }
+        $x['user'] = $this->mastermodel->get_user();
         $this->load->view('AccKaryawanView', $x);
     }
 

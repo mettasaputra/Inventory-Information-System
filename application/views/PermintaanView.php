@@ -19,7 +19,8 @@
 </head>
 
 <body>
-    <?php $this->load->view('partials/nav'); ?>
+    <?php $this->load->view('partials/nav');
+    $usr = $user->row_array() ?>
     <div class="container-fluid">
         <h4 class="my-3 navy">Formulir Permintaan Barang</h4>
         <div class="row">
@@ -36,7 +37,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Atas Nama</label>
                                 <div class="col-sm-8">
-                                    <input type="text" value="<?= $this->session->userdata('idadmin') ?>" name="karyawan" hidden>
+                                    <input type="text" value="<?= $usr['id_karyawan'] ?>" name="karyawan" hidden>
                                     <input type="text" value="<?= $this->session->userdata('nama') ?>" readonly class="form-control form-control-sm">
                                 </div>
                             </div>

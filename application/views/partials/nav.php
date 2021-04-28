@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-primary shadow shadow-sm sticky-top p-0">
+<nav class="navbar navbar-expand-sm navbar-light bg-primary shadow shadow-sm sticky-top p-2">
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon "></span>
     </button>
@@ -7,7 +7,7 @@
             <li class="nav-item active" style="background-color: #000066;">
                 <a class="nav-link text-white mx-2" href="<?= base_url() . 'dashboard' ?>"><i class="fas fa-utensils    "></i> <span class="sr-only">(current)</span></a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link text-white" href="<?= base_url() . 'dashboard' ?>">Dashboard <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
@@ -22,11 +22,22 @@
             <li class="nav-item">
                 <a class="nav-link text-white" href="<?= base_url() . 'permintaan' ?>">Permintaan</a>
             </li>
-            <li class="nav-item float-right" style="background-color: #000066;float:right">
-                <a class="nav-link text-white mx-2" href="<?= base_url() . 'dashboard' ?>"><i class="fas fa-utensils    "></i> <span class="sr-only">(current)</span></a>
-            </li>
-
         </ul>
 
     </div>
+    <div class='navbar-collapse collapse  order-3 dual-collapse2' id="collapsibleNavId">
+        <ul class='navbar-nav ml-auto'>
+            <div class="dropdown open ">
+                <a class="dropdown-left" type="button" id="triggerId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-user-circle text-white fa-2x" aria-hidden="true"></i>
+                    <span class="mb-3 text-uppercase"><?= $this->session->userdata('nama') ?></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-left w-50" aria-labelledby="triggerId">
+                    <a class='nav-link' href="<?= Base_url() . 'administrator/logout' ?>">Logout</a>
+                    <div class="dropdown-divider"></div>
+                </div>
+            </div>
+        </ul>
+    </div>
+
 </nav>

@@ -79,14 +79,14 @@ class TransaksiModel extends CI_Model
 
     function tampil_permintaan()
     {
-        return $this->db->query("SELECT permintaan_karyawan.id_permintaan,permintaan_karyawan.tanggal_kebutuhan, permintaan_karyawan.keterangan as ket, permintaan_karyawan.created_at, user.nama_user 
-        FROM permintaan_karyawan JOIN user ON permintaan_karyawan.request_by = user.id_user");
+        return $this->db->query("SELECT permintaan_karyawan.id_permintaan,permintaan_karyawan.tanggal_kebutuhan, permintaan_karyawan.keterangan as ket, permintaan_karyawan.created_at, karyawan.nama_karyawan 
+        FROM permintaan_karyawan JOIN karyawan ON permintaan_karyawan.request_by = karyawan.id_karyawan");
     }
 
     function permintaan($id)
     {
-        return $this->db->query("SELECT permintaan_karyawan.id_permintaan,permintaan_karyawan.request_by,permintaan_karyawan.tanggal_kebutuhan, permintaan_karyawan.keterangan as ket, permintaan_karyawan.created_at, user.nama_user 
-        FROM permintaan_karyawan JOIN user ON permintaan_karyawan.request_by = user.id_user WHERE permintaan_karyawan.id_permintaan='$id'");
+        return $this->db->query("SELECT permintaan_karyawan.id_permintaan,permintaan_karyawan.request_by,permintaan_karyawan.tanggal_kebutuhan, permintaan_karyawan.keterangan as ket, permintaan_karyawan.created_at, karyawan.nama_karyawan 
+        FROM permintaan_karyawan JOIN karyawan ON permintaan_karyawan.request_by = karyawan.id_karyawan WHERE permintaan_karyawan.id_permintaan='$id'");
     }
 
     function delete($idbrg, $id)
@@ -98,9 +98,9 @@ class TransaksiModel extends CI_Model
     {
         return $this->db->query("SELECT permintaan_karyawan.*, permintaan_karyawan.keterangan as ket, permintaan_karyawan.keterangan as ket, DATE_FORMAT(permintaan_karyawan.tanggal_kebutuhan,'%m/%d/%Y') as tgl, 
         barang.*,
-        detail_permintaan.jumlah, detail_permintaan.keterangan, user.nama_user FROM permintaan_karyawan JOIN detail_permintaan
+        detail_permintaan.jumlah, detail_permintaan.keterangan, karyawan.nama_karyawan FROM permintaan_karyawan JOIN detail_permintaan
         ON permintaan_karyawan.id_permintaan = detail_permintaan.id_permintaan 
-        JOIN user ON permintaan_karyawan.request_by = user.id_user
+        JOIN karyawan ON permintaan_karyawan.request_by = karyawan.id_karyawan
         JOIN barang ON detail_permintaan.id_barang = barang.id_barang
         WHERE permintaan_karyawan.id_permintaan = '$id'");
     }

@@ -39,7 +39,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-3 col-form-label">Karyawan</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" value="<?= $a['nama_user'] ?>" readonly>
+                                    <input type="text" class="form-control" value="<?= $a['nama_karyawan'] ?>" readonly>
                                     <input type="hidden" class="form-control" name="karyawan" value="<?= $this->session->userdata('kyw') ?>" readonly>
                                 </div>
                             </div>

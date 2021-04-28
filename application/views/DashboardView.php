@@ -35,7 +35,7 @@
 								foreach ($data->result_array() as $a) :
 									$no++;
 									$id = $a['id_permintaan'];
-									$user = $a['nama_user'];
+									$user = $a['nama_karyawan'];
 									$tglpermintaan = date("d-m-Y H:i", strtotime($a['created_at']));
 									$tgl = date("d-m-Y", strtotime($a['tanggal_kebutuhan']));
 									$ket = $a['ket'];
