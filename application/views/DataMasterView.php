@@ -84,7 +84,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="<?= base_url() . 'laporan/laporandivisi' ?>" method="POST">
+                            <form action="<?= base_url() . 'laporan' ?>" method="POST">
                                 <div class="modal-body">
                                     <select name="bln">
                                         <option value="4">April</option>
@@ -112,41 +112,39 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Laporan Bulanan 2021</h5>
+                                <h5 class="modal-title">Laporan Pemakaian per Divisi</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="<?= base_url() . 'laporan' ?>" method="POST">
+                            <form action="<?= base_url() . 'laporan/laporandivisi' ?>" method="POST">
                                 <div class="modal-body">
-                                    <form action="" method="POST">
-                                        <div class="form-group">
-                                            Divisi
-                                            <select name="iddivisi" class="form-control form-control-sm">
-                                                <?php
-                                                $sql = $this->db->query("SELECT * FROM divisi");
-                                                foreach ($sql->result_array() as $a) :
-                                                    $id = $a['id_divisi'];
-                                                    $divisi = $a['nama_divisi'];
-                                                ?>
-                                                    <option value="<?= $id ?>"><?= $divisi ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            Bulan
-                                            <select name="bln" class="form-control form-control-sm">
-                                                <?php
-                                                $bln = $this->db->query("SELECT DATE_FORMAT(tanggal,'%m-%Y') as databulan, DATE_FORMAT(tanggal,'%M %Y') as bln FROM pengeluaran GROUP BY tanggal");
-                                                foreach ($bln->result_array() as $dt) :
-                                                    $bulan = $dt['databulan'];
-                                                    $nama = $dt['bln'];
-                                                ?>
-                                                    <option value="<?= $bulan ?>"><?= $nama ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
-                                        </div>
-                                    </form>
+                                    <div class="form-group">
+                                        Divisi
+                                        <select name="iddivisi" class="form-control form-control-sm">
+                                            <?php
+                                            $sql = $this->db->query("SELECT * FROM divisi");
+                                            foreach ($sql->result_array() as $a) :
+                                                $id = $a['id_divisi'];
+                                                $divisi = $a['nama_divisi'];
+                                            ?>
+                                                <option value="<?= $id ?>"><?= $divisi ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        Bulan
+                                        <select name="bln" class="form-control form-control-sm">
+                                            <?php
+                                            $bln = $this->db->query("SELECT DATE_FORMAT(tanggal,'%m-%Y') as databulan, DATE_FORMAT(tanggal,'%M %Y') as bln FROM pengeluaran GROUP BY tanggal");
+                                            foreach ($bln->result_array() as $dt) :
+                                                $bulan = $dt['databulan'];
+                                                $nama = $dt['bln'];
+                                            ?>
+                                                <option value="<?= $bulan ?>"><?= $nama ?></option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>

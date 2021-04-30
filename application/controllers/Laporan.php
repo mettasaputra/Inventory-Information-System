@@ -20,6 +20,7 @@ class Laporan extends CI_Controller
     {
         $bln = $this->input->post('bln');
         $iddivisi = $this->input->post('iddivisi');
-        $this->laporanmodel->laporanpemakaian($bln, $iddivisi);
+        $x['data'] = $this->laporanmodel->laporanpemakaian($bln, $iddivisi);
+        $this->load->view('laporan/laporandivisi', $x);
     }
 }
