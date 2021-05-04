@@ -15,10 +15,17 @@ class MasterModel extends CI_Model
 
     function kartu_stok($id)
     {
-        return $this->db->query("SELECT * from (select date(`pengeluaran`.`tanggal`) as tanggal ,concat(`pengeluaran`.`jenis_pengeluaran`,',',detail_pengeluaran.keterangan) as keterangan ,-`detail_pengeluaran`.`jumlah` 
+        return $this->db->query("SELECT * FROM (select date(`pengeluaran`.`tanggal`) as tanggal ,concat(`pengeluaran`.`jenis_pengeluaran`,',',detail_pengeluaran.keterangan) as keterangan ,-`detail_pengeluaran`.`jumlah` 
         as qty from pengeluaran join detail_pengeluaran on pengeluaran.id_pengeluaran = detail_pengeluaran.id_pengeluaran where detail_pengeluaran.id_barang ='$id' union ALL
         SELECT date(`penerimaan`.`tanggal`) as tanggal , concat(penerimaan.jenis_penerimaan,',',detail_penerimaan.keterangan) as keterangan ,detail_penerimaan.jumlah as qty 
         from penerimaan join detail_penerimaan on penerimaan.id_penerimaan = detail_penerimaan.id_penerimaan where detail_penerimaan.id_barang ='$id')a order by a.tanggal asc , a.qty DESC");
+    }
+
+    function tracking_data($id)
+    {
+        return $this->db->query("SELECT supplier.* FROM penerimaan JOIN supplier ON penerimaan.id_supplier = supplier.id_supplier
+        JOIN detail_penerimaan ON penerimaan.id_penerimaan = detail_penerimaan.id_penerimaan WHERE detail_penerimaan.id_barang='$id'
+        GROUP BY penerimaan.id_supplier ORDER BY supplier.nama_supplier ASC");
     }
 
     function input_data($kode, $nama, $kat, $satuan)
