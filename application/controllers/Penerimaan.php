@@ -14,7 +14,7 @@ class Penerimaan extends CI_Controller
         $this->cart->product_id_rules = '\d\D';
     }
 
-    public function index()
+    function index()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $this->load->view('PenerimaanView');
@@ -30,7 +30,7 @@ class Penerimaan extends CI_Controller
         $this->load->view('DetailViewPenerimaan', $x);
     }
 
-    public function supplier()
+    function supplier()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $data['brg'] = $this->mastermodel->get_data_barang();
@@ -175,21 +175,29 @@ class Penerimaan extends CI_Controller
 
     function dataHistory()
     {
-        $from = $this->input->post('from');
-        $to = $this->input->post('to');
-        $this->session->set_userdata('from', $from);
-        $this->session->set_userdata('to', $to);
-        $x['data'] = $this->transaksimodel->history_penerimaan($from, $to);
-        $this->load->view('PHistoryView', $x);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $from = $this->input->post('from');
+            $to = $this->input->post('to');
+            $this->session->set_userdata('from', $from);
+            $this->session->set_userdata('to', $to);
+            $x['data'] = $this->transaksimodel->history_penerimaan($from, $to);
+            $this->load->view('PHistoryView', $x);
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function dataHistoryOpsional()
     {
-        $from = $this->input->post('from');
-        $to = $this->input->post('to');
-        $this->session->set_userdata('from', $from);
-        $this->session->set_userdata('to', $to);
-        $x['data'] = $this->transaksimodel->history_penerimaan_lain($from, $to);
-        $this->load->view('PHistoryLainView', $x);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $from = $this->input->post('from');
+            $to = $this->input->post('to');
+            $this->session->set_userdata('from', $from);
+            $this->session->set_userdata('to', $to);
+            $x['data'] = $this->transaksimodel->history_penerimaan_lain($from, $to);
+            $this->load->view('PHistoryLainView', $x);
+        } else {
+            redirect('Custom404');
+        }
     }
 }

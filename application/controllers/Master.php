@@ -10,34 +10,53 @@ class Master extends CI_Controller
         $this->load->model('UserModel', 'usermodel');
     }
 
-    public function index()
+    function index()
     {
-        $x['data'] = $this->mastermodel->get_data_barang();
-        $this->load->view('DataMasterView');
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $x['data'] = $this->mastermodel->get_data_barang();
+            $this->load->view('DataMasterView');
+        } else {
+            redirect('Custom404');
+        }
     }
 
-    public function barang()
+    function barang()
     {
-        $x['data'] = $this->mastermodel->get_data_barang();
-        $this->load->view('DataBarangView', $x);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $x['data'] = $this->mastermodel->get_data_barang();
+            $this->load->view('DataBarangView', $x);
+        } else {
+            redirect('Custom404');
+        }
     }
 
-    public function supplier()
+    function supplier()
     {
-        $x['data'] = $this->mastermodel->get_data_supplier();
-        $this->load->view('DataSupplierView', $x);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $x['data'] = $this->mastermodel->get_data_supplier();
+            $this->load->view('DataSupplierView', $x);
+        } else {
+            redirect('Custom404');
+        }
     }
 
-    public function user()
+    function user()
     {
-        $x['data'] = $this->usermodel->get_data_user();
-        $this->load->view('DataUserView', $x);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $x['data'] = $this->usermodel->get_data_user();
+            $this->load->view('DataUserView', $x);
+        } else {
+            redirect('Custom404');
+        }
     }
 
-
-    public function karyawan()
+    function karyawan()
     {
-        $x['dt'] = $this->mastermodel->get_data_karyawan();
-        $this->load->view('DataKaryawanView', $x);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $x['dt'] = $this->mastermodel->get_data_karyawan();
+            $this->load->view('DataKaryawanView', $x);
+        } else {
+            redirect('Custom404');
+        }
     }
 }

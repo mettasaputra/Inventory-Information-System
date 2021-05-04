@@ -14,7 +14,7 @@ class Pengeluaran extends CI_Controller
         $this->cart->product_id_rules = '\d\D';
     }
 
-    public function index()
+    function index()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $this->load->view('PengeluaranView');
@@ -30,7 +30,7 @@ class Pengeluaran extends CI_Controller
         $this->load->view('DetailViewPengeluaran', $x);
     }
 
-    public function requestby()
+    function requestby()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $data['brg'] = $this->mastermodel->get_data_barang();
@@ -103,8 +103,12 @@ class Pengeluaran extends CI_Controller
 
     function opsional()
     {
-        $data['brg'] = $this->mastermodel->get_data_barang();
-        $this->load->view('OOpsionalView', $data);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $data['brg'] = $this->mastermodel->get_data_barang();
+            $this->load->view('OOpsionalView', $data);
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function add_to_cart_opsional()
@@ -165,21 +169,29 @@ class Pengeluaran extends CI_Controller
 
     function dataHistory()
     {
-        $from = $this->input->post('from');
-        $to = $this->input->post('to');
-        $this->session->set_userdata('from', $from);
-        $this->session->set_userdata('to', $to);
-        $x['data'] = $this->transaksimodel->history_pengeluaran($from, $to);
-        $this->load->view('OHistoryView', $x);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $from = $this->input->post('from');
+            $to = $this->input->post('to');
+            $this->session->set_userdata('from', $from);
+            $this->session->set_userdata('to', $to);
+            $x['data'] = $this->transaksimodel->history_pengeluaran($from, $to);
+            $this->load->view('OHistoryView', $x);
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function dataHistoryLain()
     {
-        $from = $this->input->post('from');
-        $to = $this->input->post('to');
-        $this->session->set_userdata('from', $from);
-        $this->session->set_userdata('to', $to);
-        $x['data'] = $this->transaksimodel->history_pengeluaran_lain($from, $to);
-        $this->load->view('OHistoryLainView', $x);
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $from = $this->input->post('from');
+            $to = $this->input->post('to');
+            $this->session->set_userdata('from', $from);
+            $this->session->set_userdata('to', $to);
+            $x['data'] = $this->transaksimodel->history_pengeluaran_lain($from, $to);
+            $this->load->view('OHistoryLainView', $x);
+        } else {
+            redirect('Custom404');
+        }
     }
 }

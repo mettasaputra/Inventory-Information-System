@@ -102,8 +102,9 @@
                             <td class="text-center align-items-middle"><?= $telp ?></td>
                             <td class="text-center align-items-middle"><?= $alamat ?></td>
                             <td class="text-center align-items-middle">
+                                <a href="<?= base_url() . 'supplier/list_data?id=' . $id ?>" class="btn btn-sm btn-success">List Barang</a>
                                 <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#model<?= $id ?>">
-                                    Edit
+                                    Edit Data
                                 </a>
 
                                 <div class="modal fade" id="model<?= $id ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">

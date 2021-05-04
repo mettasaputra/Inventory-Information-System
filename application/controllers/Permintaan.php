@@ -14,7 +14,7 @@ class Permintaan extends CI_Controller
         $this->cart->product_id_rules = '\d\D';
     }
 
-    public function index()
+    function index()
     {
         $x['user'] = $this->mastermodel->get_user();
         $x['brg'] = $this->mastermodel->get_data_barang();

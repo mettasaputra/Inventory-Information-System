@@ -21,6 +21,15 @@ class MasterModel extends CI_Model
         from penerimaan join detail_penerimaan on penerimaan.id_penerimaan = detail_penerimaan.id_penerimaan where detail_penerimaan.id_barang ='$id')a order by a.tanggal asc , a.qty DESC");
     }
 
+    function list_data($id)
+    {
+        return $this->db->query("SELECT barang.* FROM penerimaan JOIN supplier ON penerimaan.id_supplier = supplier.id_supplier
+        JOIN detail_penerimaan ON detail_penerimaan.id_penerimaan = penerimaan.id_penerimaan
+        JOIN barang ON detail_penerimaan.id_barang = barang.id_barang
+        WHERE penerimaan.id_supplier='$id' GROUP BY barang.id_barang
+        ORDER BY barang.nama_barang ASC");
+    }
+
     function tracking_data($id)
     {
         return $this->db->query("SELECT supplier.* FROM penerimaan JOIN supplier ON penerimaan.id_supplier = supplier.id_supplier
