@@ -9,16 +9,20 @@ class Karyawan extends CI_Controller
         $this->load->model('MasterModel', 'mastermodel');
     }
 
-    public function index()
+    function index()
     {
     }
 
     function input_data()
     {
-        $nama = $this->input->post('nama');
-        $divisi = $this->input->post('divisi');
-        $this->mastermodel->input_karyawan($nama, $divisi);
-        redirect('master/karyawan');
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $nama = $this->input->post('nama');
+            $divisi = $this->input->post('divisi');
+            $this->mastermodel->input_karyawan($nama, $divisi);
+            redirect('master/karyawan');
+        } else {
+            redirect('Custom404');
+        }
     }
 
     function update_data()

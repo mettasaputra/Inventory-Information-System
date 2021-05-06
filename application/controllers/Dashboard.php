@@ -13,9 +13,13 @@ class Dashboard extends CI_Controller
 		$this->cart->product_name_rules = '\d\D';
 		$this->cart->product_id_rules = '\d\D';
 	}
-	public function index()
+	function index()
 	{
-		$x['data'] = $this->transaksimodel->tampil_permintaan();
-		$this->load->view('DashboardView', $x);
+		if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+			$x['data'] = $this->transaksimodel->tampil_permintaan();
+			$this->load->view('DashboardView', $x);
+		} else {
+			redirect('Custom404');
+		}
 	}
 }

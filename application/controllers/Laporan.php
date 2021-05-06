@@ -9,14 +9,14 @@ class Laporan extends CI_Controller
         $this->load->model('LaporanModel', 'laporanmodel');
     }
 
-    public function index()
+    function index()
     {
         $bln = $this->input->post('bln');
         $x['data'] = $this->laporanmodel->tampilstok($bln);
         $this->load->view('laporan/laporanlogistik', $x);
     }
 
-    public function laporanDivisi()
+    function laporanDivisi()
     {
         $bln = $this->input->post('bln');
         $iddivisi = $this->input->post('iddivisi');

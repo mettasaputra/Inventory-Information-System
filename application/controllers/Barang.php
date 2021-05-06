@@ -9,11 +9,11 @@ class Barang extends CI_Controller
         $this->load->model('MasterModel', 'mastermodel');
     }
 
-    public function index()
+    function index()
     {
     }
 
-    public function input_data()
+    function input_data()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $kode = $this->input->post('kode');
@@ -27,7 +27,7 @@ class Barang extends CI_Controller
         }
     }
 
-    public function delete_data()
+    function delete_data()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $id = $this->input->get('id');
@@ -50,7 +50,7 @@ class Barang extends CI_Controller
         }
     }
 
-    public function tracking_data()
+    function tracking_data()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $id = $this->input->get('id');

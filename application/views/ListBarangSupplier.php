@@ -20,19 +20,16 @@
         <h3 class="text-center">LIST BARANG/PRODUK/ITEM</h3>
         <table>
             <tr>
-                <td class="p-1 bg-primary text-white" width="180px">Nama Supplier</td>
-                <td width="5%"> : </td>
-                <td class=" p-1 "> <?= $a['nama_supplier'] ?></td>
+                <td class="font-weight-bold" width="180px">Nama Supplier</td>
+                <td>: <?= $a['nama_supplier'] ?></td>
             </tr>
             <tr>
-                <td class="p-1 bg-primary text-white" width="180px">Contact Person</td>
-                <td width="5%"> : </td>
-                <td class="p-1"><?= $a['contact_person'] ?></td>
+                <td class="font-weight-bold">Contact Person</td>
+                <td>: <?= $a['contact_person'] ?></td>
             </tr>
             <tr>
-                <td class="text-white bg-primary">No Telp</td>
-                <td width="5%"> : </td>
-                <td class="p-1"> <?= $a['no_telp'] ?></td>
+                <td class="font-weight-bold">No Telp</td>
+                <td>: <?= $a['no_telp'] ?></td>
             </tr>
         </table>
         <div class="card rounded-0 my-2" style="height: 350px; overflow-y:auto;">

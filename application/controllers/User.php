@@ -9,23 +9,31 @@ class User extends CI_Controller
         $this->load->model('UserModel', 'usermodel');
     }
 
-    public function index()
+    function index()
     {
     }
 
-    public function input_data()
+    function input_data()
     {
-        $nama = $this->input->post('user');
-        $personaid = $this->input->post('personal');
-        $level = $this->input->post('level');
-        $this->usermodel->input_data($nama, $personaid, $level);
-        redirect('master/user');
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $nama = $this->input->post('user');
+            $personaid = $this->input->post('personal');
+            $level = $this->input->post('level');
+            $this->usermodel->input_data($nama, $personaid, $level);
+            redirect('master/user');
+        } else {
+            redirect('Custom404');
+        }
     }
 
-    public function delete_data()
+    function delete_data()
     {
-        $id = $this->input->get('id');
-        $this->usermodel->delete_data($id);
-        redirect('master/user');
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $id = $this->input->get('id');
+            $this->usermodel->delete_data($id);
+            redirect('master/user');
+        } else {
+            redirect('Custom404');
+        }
     }
 }
