@@ -20,7 +20,7 @@
 
 <body>
     <?php
-    if ($this->session->userdata('akses') == '1') {
+    if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
         $this->load->view('partials/nav');
     }
     $usr = $user->row_array() ?>

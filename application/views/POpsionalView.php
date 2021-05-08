@@ -21,7 +21,7 @@
 <body>
     <?php $this->load->view('partials/nav'); ?>
     <div class="container-fluid">
-        <h4 class="my-3 navy">Formulir Penerimaan Barang Lain-Lain</h4>
+        <h4 class="my-3 navy">Formulir Penerimaan Barang (Lain-Lain)</h4>
         <div class="row">
             <div class="col-md-5">
                 <div class="card rounded-0">
