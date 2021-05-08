@@ -22,7 +22,8 @@
 </head>
 
 <body>
-    <?php $this->load->view('partials/nav'); ?>
+    <?php $this->load->view('partials/nav');
+    ?>
     <div class="container my-3">
         <h3 class="text-left navy">Data Master</h3>
         <div class="row mt-2">
@@ -86,9 +87,18 @@
                             </div>
                             <form action="<?= base_url() . 'laporan' ?>" method="POST">
                                 <div class="modal-body">
-                                    <select name="bln">
-                                        <option value="4">April</option>
-                                    </select>
+                                    <!-- <select name="bln">
+                                        <?php
+                                        foreach ($sql->result_array() as $a) :
+                                            $dt = date("m-Y", strtotime($a['tanggal']));
+                                            $sblm = date("m-Y", strtotime('-1 month', strtotime($a['tanggal'])));
+                                        ?>
+                                            <option value="<?= $dt ?>"><?= $dt ?><?= $sblm ?></option>
+                                        <?php endforeach; ?>
+                                    </select> -->
+
+                                    <input type="month" name="bln" class="form-control form-control-sm">
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>

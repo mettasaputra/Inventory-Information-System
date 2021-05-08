@@ -14,6 +14,9 @@
 
 <body>
     <div class="table-responsive">
+        <?php
+        // var_dump($bln)
+        ?>
         <table class="table table-sm table-bordered">
             <thead class="bg-warning">
                 <th class="text-center">No</th>

@@ -12,7 +12,10 @@ class Laporan extends CI_Controller
     function index()
     {
         $bln = $this->input->post('bln');
-        $x['data'] = $this->laporanmodel->tampilstok($bln);
+        if ($bln == true) {
+            $before = date("Y-m", strtotime('-1 month', strtotime($bln)));
+        }
+        $x['data'] = $this->laporanmodel->tampilstok($bln, $before);
         $this->load->view('laporan/laporanlogistik', $x);
     }
 

@@ -8,13 +8,15 @@ class Master extends CI_Controller
         parent::__construct();
         $this->load->model('MasterModel', 'mastermodel');
         $this->load->model('UserModel', 'usermodel');
+        $this->load->model('LaporanModel', 'laporanmodel');
     }
 
     function index()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $x['data'] = $this->mastermodel->get_data_barang();
-            $this->load->view('DataMasterView');
+            $x['sql'] = $this->laporanmodel->getbulan();
+            $this->load->view('DataMasterView', $x);
         } else {
             redirect('Custom404');
         }
