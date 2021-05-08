@@ -15,7 +15,7 @@ class User extends CI_Controller
 
     function input_data()
     {
-        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+        if ($this->session->userdata('akses') == '1') {
             $nama = $this->input->post('user');
             $personaid = $this->input->post('personal');
             $level = $this->input->post('level');
@@ -28,7 +28,7 @@ class User extends CI_Controller
 
     function delete_data()
     {
-        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+        if ($this->session->userdata('akses') == '1') {
             $id = $this->input->get('id');
             $this->usermodel->delete_data($id);
             redirect('master/user');

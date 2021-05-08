@@ -73,20 +73,37 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-3 mt-3">
-                <a href="<?= base_url() . 'master/user' ?>" class="text-decoration-none">
-                    <div class="card bg-primary rounded-0">
-                        <div class="card-body text-left text-white">
-                            <?php
-                            $sql = $this->db->query("SELECT COUNT(*) as data FROM user");
-                            $d = $sql->row_array();
-                            ?>
-                            <h4 class="card-title"><i class="fas fa-user-friends fa-2x"><span class="ml-3 arialfont"><?= $d['data'] ?></span></i></h4>
-                            <p class="card-text">Data User</p>
+            <?php if ($this->session->userdata('akses') == 1) : ?>
+                <div class="col-md-3 mt-3">
+                    <a href="<?= base_url() . 'master/user' ?>" class="text-decoration-none">
+                        <div class="card bg-primary rounded-0">
+                            <div class="card-body text-left text-white">
+                                <?php
+                                $sql = $this->db->query("SELECT COUNT(*) as data FROM user");
+                                $d = $sql->row_array();
+                                ?>
+                                <h4 class="card-title"><i class="fas fa-user-friends fa-2x"><span class="ml-3 arialfont"><?= $d['data'] ?></span></i></h4>
+                                <p class="card-text">Data User</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <?php else : ?>
+                <div class="col-md-3 mt-3">
+                    <a class="text-decoration-none">
+                        <div class="card bg-primary rounded-0">
+                            <div class="card-body text-left text-white">
+                                <?php
+                                $sql = $this->db->query("SELECT COUNT(*) as data FROM user");
+                                $d = $sql->row_array();
+                                ?>
+                                <h4 class="card-title"><i class="fas fa-user-friends fa-2x"><span class="ml-3 arialfont"><?= $d['data'] ?></span></i></h4>
+                                <p class="card-text">Data User</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php endif; ?>
             <div class="col-md-3 mt-3">
                 <a href="" class="text-decoration-none" data-toggle="modal" data-target="#modelId">
                     <div class="card bg-secondary rounded-0">

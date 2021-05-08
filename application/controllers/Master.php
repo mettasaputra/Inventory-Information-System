@@ -44,7 +44,7 @@ class Master extends CI_Controller
 
     function user()
     {
-        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+        if ($this->session->userdata('akses') == '1') {
             $x['data'] = $this->usermodel->get_data_user();
             $this->load->view('DataUserView', $x);
         } else {

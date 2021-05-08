@@ -59,7 +59,7 @@
                                         <div class="col-sm-9 mt-2">
                                             <div class="form-group form-check-inline">
                                                 <input class="form-check-input" type="radio" name="level" value="1">
-                                                <label class="form-check-label" for="inlineRadio1">Super User</label>
+                                                <label class="form-check-label" for="inlineRadio1">Manager</label>
                                             </div>
                                             <div class="form-group form-check-inline">
                                                 <input class="form-check-input" type="radio" name="level" value="2">
@@ -111,7 +111,14 @@
                             <td class="align-items-middle"><?= $nama ?></td>
                             <td class="align-items-middle"><?= $divisi ?></td>
                             <td class="text-center align-items-middle"><?= $personal ?></td>
-                            <td class="text-center align-items-middle"><?= $lvl ?></td>
+                            <?php
+                            if ($lvl == 1) : ?>
+                                <td class="text-center align-items-middle">Manager</td>
+                            <?php elseif ($lvl == 2) : ?>
+                                <td class="text-center align-items-middle">Administrator</td>
+                            <?php elseif ($lvl == 3) : ?>
+                                <td class="text-center align-items-middle">User</td>
+                            <?php endif; ?>
                             <td class="text-center align-items-middle">
                                 <a href="<?= base_url() . 'user/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
                             </td>
