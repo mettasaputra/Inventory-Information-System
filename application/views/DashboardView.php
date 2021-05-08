@@ -17,7 +17,7 @@
 	<div class="container-fluid my-3">
 		<div class="card rounded-0 bg-light" style="height: 350px; overflow-y:auto">
 			<div class="card-body">
-				<h4 class="card-title navy">Daftar Permintaan</h4>
+				<h4 class="card-title navy">Daftar Permintaan Karyawan</h4>
 				<div class="card-text">
 					<div class="table-responsive">
 						<table class="table table-sm table-bordered">
@@ -65,7 +65,6 @@
 	<script>
 		$(document).ready(function() {
 			$('table').DataTable();
-
 		})
 	</script>
 </body>

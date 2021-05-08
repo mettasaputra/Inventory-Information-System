@@ -18,6 +18,10 @@
             color: white;
             padding: 10px;
         }
+
+        .arialfont {
+            font-family: Arial, Helvetica, sans-serif;
+        }
     </style>
 </head>
 
@@ -31,7 +35,11 @@
                 <a href="<?= base_url() . 'master/barang' ?>" class="text-decoration-none">
                     <div class="card bg-info rounded-0">
                         <div class="card-body text-left text-white">
-                            <h4 class="card-title"><i class="fas fa-warehouse fa-2x"></i></h4>
+                            <?php
+                            $sql = $this->db->query("SELECT COUNT(*) as data FROM barang");
+                            $a = $sql->row_array();
+                            ?>
+                            <h4 class="card-title"><i class="fas fa-warehouse fa-2x"> <span class="ml-2 arialfont"><?= $a['data'] ?></span></i></h4>
                             <p class="card-text">Data Barang</p>
                         </div>
                     </div>
@@ -41,7 +49,11 @@
                 <a href="<?= base_url() . 'master/supplier' ?>" class="text-decoration-none">
                     <div class="card bg-success rounded-0">
                         <div class="card-body text-left text-white">
-                            <h4 class="card-title"><i class="fas fa-address-book fa-2x"></i></h4>
+                            <?php
+                            $sql = $this->db->query("SELECT COUNT(*) as data FROM supplier");
+                            $b = $sql->row_array();
+                            ?>
+                            <h4 class="card-title"><i class="fas fa-address-book fa-2x"><span class="ml-3 arialfont"><?= $b['data'] ?></span></i></h4>
                             <p class="card-text">Data Supplier</p>
                         </div>
                     </div>
@@ -51,7 +63,11 @@
                 <a href="<?= base_url() . 'master/karyawan' ?>" class="text-decoration-none">
                     <div class="card bg-dark rounded-0">
                         <div class="card-body text-left text-white">
-                            <h4 class="card-title"><i class="fa fa-users fa-2x" aria-hidden="true"></i></h4>
+                            <?php
+                            $sql = $this->db->query("SELECT COUNT(*) as data FROM karyawan");
+                            $c = $sql->row_array();
+                            ?>
+                            <h4 class="card-title"><i class="fa fa-users fa-2x" aria-hidden="true"><span class="ml-3 arialfont"><?= $c['data'] ?></span></i></h4>
                             <p class="card-text">Data Karyawan</p>
                         </div>
                     </div>
@@ -61,7 +77,11 @@
                 <a href="<?= base_url() . 'master/user' ?>" class="text-decoration-none">
                     <div class="card bg-primary rounded-0">
                         <div class="card-body text-left text-white">
-                            <h4 class="card-title"><i class="fas fa-user-friends fa-2x"></i></h4>
+                            <?php
+                            $sql = $this->db->query("SELECT COUNT(*) as data FROM user");
+                            $d = $sql->row_array();
+                            ?>
+                            <h4 class="card-title"><i class="fas fa-user-friends fa-2x"><span class="ml-3 arialfont"><?= $d['data'] ?></span></i></h4>
                             <p class="card-text">Data User</p>
                         </div>
                     </div>
@@ -80,25 +100,15 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Laporan Bulanan 2021</h5>
+                                <h5 class="modal-title">Laporan Bulanan</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <form action="<?= base_url() . 'laporan' ?>" method="POST">
                                 <div class="modal-body">
-                                    <!-- <select name="bln">
-                                        <?php
-                                        foreach ($sql->result_array() as $a) :
-                                            $dt = date("m-Y", strtotime($a['tanggal']));
-                                            $sblm = date("m-Y", strtotime('-1 month', strtotime($a['tanggal'])));
-                                        ?>
-                                            <option value="<?= $dt ?>"><?= $dt ?><?= $sblm ?></option>
-                                        <?php endforeach; ?>
-                                    </select> -->
-
+                                    Pilih Bulan
                                     <input type="month" name="bln" class="form-control form-control-sm">
-
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>

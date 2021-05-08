@@ -41,7 +41,7 @@ class Administrator extends CI_Controller
     }
     function berhasillogin()
     {
-        if ($this->session->userdata('akses') == '1') {
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             redirect('dashboard');
         } elseif ($this->session->userdata('akses') == '3') {
             redirect('permintaan');
