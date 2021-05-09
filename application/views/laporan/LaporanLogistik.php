@@ -10,6 +10,18 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/select2/dist/css/select2.min.css' ?>">
+    <style>
+        .table-bordered td,
+        .table-bordered th {
+            border-color: black !important;
+        }
+
+        table thead th {
+            font-weight: bold;
+            text-align: center;
+            background-color: orange;
+        }
+    </style>
 </head>
 
 <body>

@@ -13,6 +13,11 @@ class MasterModel extends CI_Model
         return $this->db->query("SELECT barang.*, kategori.nama_kategori FROM barang JOIN kategori ON barang.id_kategori = kategori.id_kategori WHERE barang.id_barang = '$kode' ORDER BY barang.kode_barang ASC");
     }
 
+    function cetak_data_barang($id)
+    {
+        return $this->db->query("SELECT barang.*, kategori.nama_kategori FROM barang JOIN kategori ON barang.id_kategori = kategori.id_kategori WHERE barang.id_kategori = '$id' ORDER BY barang.kode_barang ASC");
+    }
+
     function kartu_stok($id)
     {
         return $this->db->query("SELECT * FROM (select date(`pengeluaran`.`tanggal`) as tanggal ,concat(`pengeluaran`.`jenis_pengeluaran`,',',detail_pengeluaran.keterangan) as keterangan ,-`detail_pengeluaran`.`jumlah` 

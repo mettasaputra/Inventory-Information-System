@@ -16,7 +16,7 @@
 <body>
     <?php $this->load->view('partials/nav'); ?>
     <div class="container-fluid">
-        <h4 class="font-weight-bold my-3">History Pengeluaran Barang (Retur, Stock Opname, dll)</h4>
+        <h4 class="font-weight-bold my-3">History Pengeluaran Barang</h4>
         <hr />
         <div class="row">
             <div class="col-md-6">

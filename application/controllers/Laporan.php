@@ -16,6 +16,8 @@ class Laporan extends CI_Controller
             $before = date("Y-m", strtotime('-1 month', strtotime($bln)));
         }
         $x['data'] = $this->laporanmodel->tampilstok($bln, $before);
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=Laporan_Stok_Bulanan.xls");
         $this->load->view('laporan/laporanlogistik', $x);
     }
 
@@ -24,6 +26,8 @@ class Laporan extends CI_Controller
         $bln = $this->input->post('bln');
         $iddivisi = $this->input->post('iddivisi');
         $x['data'] = $this->laporanmodel->laporanpemakaian($bln, $iddivisi);
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=Laporan_Habis_Pakai.xls");
         $this->load->view('laporan/laporandivisi', $x);
     }
 }

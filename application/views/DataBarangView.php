@@ -18,14 +18,16 @@
     ?>
     <div class="container-fluid">
         <div class="row my-3">
-            <div class="col-md-6">
+            <div class="col-md-9">
                 <h4 class="font-weight-bold navy">Data Barang</h4>
             </div>
-            <div class="col-md-6">
-                <button type="button" class="float-right btn btn-primary btn-sm" data-toggle="modal" data-target="#modelId">
-                    <i class="fa fa-plus" aria-hidden="true"></i> Tambah Barang
+            <div class="col-md-3">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modelId">
+                    <i class="fa fa-plus" aria-hidden="true"></i> Tambah Data Barang
                 </button>
-
+                <button type="button" class=" btn btn-primary btn-sm" data-toggle="modal" data-target="#modelIds">
+                    <i class="fa fa-print" aria-hidden="true"></i> Cetak Data
+                </button>
             </div>
         </div>
         <hr />
@@ -90,6 +92,39 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
                             <input type="submit" value="Simpan" class="btn btn-primary btn-sm">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modelIds" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title navy">Cetak Data Barang</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="<?= base_url() . 'barang/cetak_data' ?>" method="POST">
+                        <div class="modal-body">
+                            <div class="form-group">
+                                Kategori Barang
+                                <select name="id" class="form-control form-control-sm">
+                                    <?php
+                                    $sql = $this->db->query("SELECT * FROM kategori");
+                                    foreach ($sql->result_array() as $kat) :
+                                        $id = $kat['id_kategori'];
+                                        $nama = $kat['nama_kategori'];
+                                    ?>
+                                        <option value="<?= $id ?>"><?= $nama ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
+                            <input type="submit" value="Cetak" class="btn btn-primary btn-sm">
                         </div>
                     </form>
                 </div>

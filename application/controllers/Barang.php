@@ -38,13 +38,26 @@ class Barang extends CI_Controller
         }
     }
 
-    public function history()
+    function history()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $id = $this->input->get('id');
             $x['brg'] = $this->mastermodel->get_detail_barang($id);
             $x['data'] = $this->mastermodel->kartu_stok($id);
             $this->load->view('KartuStockView', $x);
+        } else {
+            redirect('Custom404');
+        }
+    }
+
+    function cetak_data()
+    {
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $id = $this->input->post('id');
+            $x['data'] = $this->mastermodel->cetak_data_barang($id);
+            header("Content-type: application/vnd-ms-excel");
+            header("Content-Disposition: attachment; filename=Data_Barang.xls");
+            $this->load->view('laporan/CetakDataBarang', $x);
         } else {
             redirect('Custom404');
         }
