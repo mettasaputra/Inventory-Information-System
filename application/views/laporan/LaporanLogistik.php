@@ -11,73 +11,78 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/select2/dist/css/select2.min.css' ?>">
     <style>
-        .table-bordered td,
-        .table-bordered th {
-            border-color: black !important;
+        th {
+            background-color: orange;
         }
 
-        table thead th {
-            font-weight: bold;
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
             text-align: center;
-            background-color: orange;
         }
     </style>
 </head>
 
 <body>
-    <div class="table-responsive">
-        <?php
-        // var_dump($bln)
-        ?>
-        <table class="table table-sm table-bordered">
-            <thead class="bg-warning">
-                <th class="text-center">No</th>
-                <th class="text-center">Kode Barang</th>
-                <th class="text-center">Nama Barang</th>
-                <th class="text-center">Unit</th>
-                <th class="text-center">Stok Awal</th>
-                <th class="text-center">Stok Masuk</th>
-                <th class="text-center">Stok Keluar</th>
-                <th class="text-center">Stok Akhir</th>
-            </thead>
-            <tbody>
-                <?php
-                $no = 0;
-                foreach ($data->result_array() as $a) :
-                    $no++;
-                    $kode = $a['kode_barang'];
-                    $nama = $a['nama_barang'];
-                    $unit = $a['satuan'];
-                    $awal = $a['qtyterima1'] - $a['qtykeluar1'];
-                    $terima = $a['qtyterima'];
-                    $keluar = $a['qtykeluar'];
-                    $akhir = $awal + ($terima - $keluar);
-                ?>
-                    <tr>
-                        <td class="align-middle text-center"><?= $no ?></td>
-                        <td class="align-middle text-center"><?= $kode ?></td>
-                        <td class="align-middle"><?= $nama ?></td>
-                        <td class="align-middle"><?= $unit ?></td>
-                        <?php if ($awal == NULL) : ?>
-                            <td class="align-middle text-center">0</td>
-                        <?php else : ?>
-                            <td class="align-middle text-center"><?= $awal ?></td>
-                        <?php endif; ?>
-                        <?php if ($terima == NULL) : ?>
-                            <td class="align-middle text-center">0</td>
-                        <?php else : ?>
-                            <td class="align-middle text-center"><?= $terima ?></td>
-                        <?php endif; ?>
-                        <?php if ($keluar == NULL) : ?>
-                            <td class="align-middle text-center">0</td>
-                        <?php else : ?>
-                            <td class="align-middle text-center"><?= $keluar ?></td>
-                        <?php endif; ?>
-                        <td class="align-middle text-center"><?= $akhir ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+    <div class="container-fluid my-3">
+        <h4><b>LAPORAN STOK</b></h4>
+        <div class="row">
+            <div class="table-responsive my-3">
+                <table class="table table-sm table-bordered">
+                    <thead>
+                        <th>No</th>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Satuan</th>
+                        <th>Stok Awal</th>
+                        <th>Stok Terima</th>
+                        <th>Stok Keluar</th>
+                        <th>Stok Akhir</th>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $no = 0;
+                        foreach ($data->result_array() as $a) :
+                            $no++;
+                            $kode = $a['kode_barang'];
+                            $nama = $a['nama_barang'];
+                            $unit = $a['satuan'];
+                            $awal = $a['qtyterima1'] - $a['qtykeluar1'];
+                            $terima = $a['qtyterima'];
+                            $keluar = $a['qtykeluar'];
+                            $akhir = $awal + ($terima - $keluar);
+                        ?>
+                            <tr>
+                                <td><?= $no ?></td>
+                                <td><?= $kode ?></td>
+                                <td style="text-align: left !important;"><?= $nama ?></td>
+                                <td><?= $unit ?></td>
+                                <?php if ($awal == NULL) : ?>
+                                    <td>0</td>
+                                <?php else : ?>
+                                    <td><?= $awal ?></td>
+                                <?php endif; ?>
+
+                                <?php if ($terima == NULL) : ?>
+                                    <td>0</td>
+                                <?php else : ?>
+                                    <td><?= $terima ?></td>
+                                <?php endif; ?>
+
+                                <?php if ($keluar == NULL) : ?>
+                                    <td>0</td>
+                                <?php else : ?>
+                                    <td><?= $keluar ?></td>
+                                <?php endif; ?>
+
+                                <td><?= $akhir ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <script src="<?= base_url() . 'assets/js/jquery-3.5.1.js' ?>" type="text/javascript"></script>
     <script src="<?= base_url() . 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' ?>" type="text/javascript"></script>

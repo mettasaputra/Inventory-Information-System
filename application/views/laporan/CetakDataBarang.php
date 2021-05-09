@@ -10,6 +10,18 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/select2/dist/css/select2.min.css' ?>">
+    <style>
+        th {
+            background-color: orange;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,10 +35,10 @@
             <div class="table-responsive my-3">
                 <table class="table table-sm table-bordered">
                     <thead>
-                        <th class="text-center">No</th>
-                        <th class="text-center">Kode Barang</th>
-                        <th class="text-center">Nama Barang</th>
-                        <th class="text-center">Satuan</th>
+                        <th>No</th>
+                        <th>Kode Barang</th>
+                        <th>Nama Barang</th>
+                        <th>Satuan</th>
                     </thead>
                     <tbody>
                         <?php
@@ -38,10 +50,10 @@
                             $satuan = $a['satuan'];
                         ?>
                             <tr>
-                                <td class="text-center"><?= $no ?></td>
-                                <td class="text-center"><?= $kode ?></td>
-                                <td><?= $nama ?></td>
-                                <td class="text-center"><?= $satuan ?></td>
+                                <td><?= $no ?></td>
+                                <td><?= $kode ?></td>
+                                <td style="text-align: left !important;"><?= $nama ?></td>
+                                <td><?= $satuan ?></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
