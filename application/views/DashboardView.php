@@ -47,7 +47,8 @@
 										<td class="text-center align-middle"><?= $tgl ?></td>
 										<td class="align-middle"><?= $ket ?></td>
 										<td class="text-center align-middle">
-											<a class="btn btn-sm btn-primary" id="tampilpmt" href="<?= base_url() . 'permintaan/detail?id=' . $id ?>"><i class="fa fa-eye" aria-hidden="true"></i> Detail</a>
+											<a class="btn btn-sm btn-primary" href="<?= base_url() . 'permintaan/detail?id=' . $id ?>"><i class="fa fa-eye" aria-hidden="true"></i> Detail</a>
+											<a class="btn btn-sm btn-danger" href="<?= base_url() . 'permintaan/delete_permintaan?id=' . $id ?>"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>
 										</td>
 									</tr>
 								<?php endforeach; ?>

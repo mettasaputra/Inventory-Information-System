@@ -25,7 +25,7 @@ foreach ($this->cart->contents() as $items) {
 <div class="form-group row">
     <label class="col-sm-4 col-form-label">Jumlah</label>
     <div class="col-sm-3">
-        <input type="number" name="qty" value="1" min="0.01" step=".01" max="<?php echo $b['stok'] - $data[$b['kode_barang']]; ?>" class="form-control " required>
+        <input type="number" oninvalid="alert('Perhatikan stok barang!');" name="qty" value="1" min="0.01" step=".01" max="<?php echo $b['stok'] - $data[$b['kode_barang']]; ?>" class="form-control " required>
     </div>
     <label class="col-sm-2 col-form-label text-right">Unit</label>
     <div class="col-sm-3">

@@ -133,8 +133,15 @@ class Permintaan extends CI_Controller
         } else {
             echo "<script>
                 alert('Tidak ada data yang diinput!');
-                window.location.href='/portal/permintaan/detail';
+                window.location.href='/portal/permintaan';
             </script>";
         }
+    }
+
+    function delete_permintaan()
+    {
+        $id = $this->input->get('id');
+        $this->transaksimodel->deletepermintaan($id);
+        redirect('dashboard');
     }
 }
