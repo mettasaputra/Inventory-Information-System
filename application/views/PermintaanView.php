@@ -25,14 +25,24 @@
     }
     $usr = $user->row_array() ?>
     <div class="container-fluid">
-        <h4 class="my-3 navy">Formulir Permintaan Barang</h4>
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="my-3 navy">Formulir Permintaan Barang</h4>
+            </div>
+            <?php
+            if ($this->session->userdata('akses') == '3') : ?>
+                <div class="col-md-6">
+                    <a href="<?= base_url() . 'permintaan/detail_permintaan' ?>" class="my-3 btn btn-sm btn-primary float-right"><i class="fa fa-eye" aria-hidden="true"></i> Lihat Permintaan</a>
+                </div>
+            <?php endif; ?>
+        </div>
         <div class="row">
             <div class="col-md-5">
                 <div class="card rounded-0">
                     <div class="card-body">
                         <form action="<?= base_url() . 'permintaan/add_to_cart' ?>" method="POST">
                             <div class="form-group row">
-                                <label class="col-sm-4 col-form-label">Tanggal</label>
+                                <label class="col-sm-4 col-form-label">Tanggal Dibutuhkan</label>
                                 <div class="col-sm-8">
                                     <input type="date" class="form-control" name="tgl" value="<?= $this->session->userdata('tgl') ?>">
                                 </div>
@@ -96,7 +106,7 @@
                                             <td class="align-items-middle text-center"><?= $items['units']; ?></td>
                                             <td class="align-items-middle text-center"><?= $items['qty']; ?></td>
                                             <td class="align-items-middle"><?= $items['comment']; ?></td>
-                                            <td class="align-items-middle text-center"><a href="<?php echo base_url() . 'permintaan/remove/' . $items['rowid']; ?>" class="btn btn-info btn-sm"><span class="fa fa-close"></span> Batal</a></td>
+                                            <td class="align-items-middle text-center"><a href="<?php echo base_url() . 'permintaan/remove_row/' . $items['rowid']; ?>" class="btn btn-info btn-sm"><span class="fa fa-close"></span> Batal</a></td>
                                         </tr>
                                     <?php endforeach; ?>
                                 </tbody>

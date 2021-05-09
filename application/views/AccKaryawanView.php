@@ -13,13 +13,16 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/select2/dist/css/select2.min.css' ?>">
     <style>
         .card {
-            height: 500px;
+            height: 440px;
         }
     </style>
 </head>
 
 <body>
-    <?php $this->load->view('partials/nav');
+    <?php
+    if ($this->session->userdata('akses') == 1 || $this->session->userdata('akses') == 2) {
+        $this->load->view('partials/nav');
+    }
     $a = $req->row_array();
     ?>
     <div class="container-fluid">
@@ -85,7 +88,12 @@
 
                                     </tbody>
                                 </table>
-                                <a href="<?php echo base_url() . 'permintaan/into_pengeluaran?id=' . $a['id_permintaan'] ?>" class=" btn btn-primary btn-sm"><span class="fa fa-save"></span> Simpan</a>
+                                <?php
+                                if ($this->session->userdata('akses') == 1 || $this->session->userdata('akses') == 2) : ?>
+                                    <a href="<?php echo base_url() . 'permintaan/into_pengeluaran?id=' . $a['id_permintaan'] ?>" class=" btn btn-primary btn-sm"><span class="fa fa-save"></span> Simpan</a>
+                                <?php else : ?>
+                                    <a href="<?php echo base_url() . 'permintaan/detail_permintaan' ?>" class=" btn btn-primary btn-sm"><span class="fa fa-home"></span> Kembali ke Halaman Utama</a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

@@ -164,4 +164,11 @@ class TransaksiModel extends CI_Model
         WHERE pengeluaran.request_by IS NULL AND pengeluaran.tanggal BETWEEN '$from' AND '$to'
         ORDER BY pengeluaran.tanggal ASC");
     }
+
+    function get_detail_permintaan()
+    {
+        $user = $this->session->userdata('nama');
+        return $this->db->query("SELECT permintaan_karyawan.*, detail_permintaan.* FROM permintaan_karyawan JOIN detail_permintaan ON permintaan_karyawan.id_permintaan = detail_permintaan.id_permintaan 
+        JOIN karyawan ON karyawan.id_karyawan = permintaan_karyawan.request_by WHERE karyawan.nama_karyawan = '$user' GROUP BY permintaan_karyawan.id_permintaan");
+    }
 }

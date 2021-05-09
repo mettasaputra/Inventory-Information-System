@@ -21,6 +21,12 @@ class Permintaan extends CI_Controller
         $this->load->view('PermintaanView', $x);
     }
 
+    function detail_permintaan()
+    {
+        $x['data'] = $this->transaksimodel->get_detail_permintaan();
+        $this->load->view('PermintaanKaryawanView', $x);
+    }
+
     function get_detail_barang()
     {
         $kode = $this->input->post('brg');
@@ -44,7 +50,7 @@ class Permintaan extends CI_Controller
         $this->session->set_userdata('ket', $ket);
         $barang = $this->mastermodel->get_detail_barang($brg);
         $a = $barang->row_array();
-        $data = array(
+        $datapermintaan = array(
             'id'      => $a['id_barang'],
             'kode'    => $a['kode_barang'],
             'qty'     => $this->input->post('qty'),
@@ -53,7 +59,16 @@ class Permintaan extends CI_Controller
             'units'   => $a['satuan'],
             'comment' => $this->input->post('ket'),
         );
-        $this->cart->insert($data);
+        $this->cart->insert($datapermintaan);
+        redirect('permintaan');
+    }
+
+    function remove_row($datapermintaan)
+    {
+        $this->cart->update(array(
+            'rowid'   => $datapermintaan,
+            'qty'     => 0
+        ));
         redirect('permintaan');
     }
 
