@@ -160,7 +160,8 @@
                                         Divisi
                                         <select name="iddivisi" class="form-control form-control-sm">
                                             <?php
-                                            $sql = $this->db->query("SELECT * FROM divisi");
+                                            $sql = $this->db->query("SELECT divisi.* FROM divisi JOIN karyawan ON divisi.id_divisi = karyawan.id_divisi
+                                            JOIN pengeluaran ON pengeluaran.request_by = karyawan.id_karyawan GROUP BY divisi.nama_divisi");
                                             foreach ($sql->result_array() as $a) :
                                                 $id = $a['id_divisi'];
                                                 $divisi = $a['nama_divisi'];
@@ -173,7 +174,7 @@
                                         Bulan
                                         <select name="bln" class="form-control form-control-sm">
                                             <?php
-                                            $bln = $this->db->query("SELECT DATE_FORMAT(tanggal,'%m-%Y') as databulan, DATE_FORMAT(tanggal,'%M %Y') as bln FROM pengeluaran GROUP BY tanggal");
+                                            $bln = $this->db->query("SELECT DATE_FORMAT(tanggal,'%m-%Y') as databulan, DATE_FORMAT(tanggal,'%M %Y') as bln FROM pengeluaran GROUP BY bln");
                                             foreach ($bln->result_array() as $dt) :
                                                 $bulan = $dt['databulan'];
                                                 $nama = $dt['bln'];

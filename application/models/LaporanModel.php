@@ -5,7 +5,6 @@ class LaporanModel extends CI_Model
 {
     function tampilStok($bln, $before)
     {
-        //ubah model, pilib  bulan dan tahun saja, tahun minus -1 bulan-2 jg
         return $this->db->query("SELECT barang.*,
         (SELECT SUM(jumlah) FROM penerimaan JOIN detail_penerimaan ON penerimaan.id_penerimaan = detail_penerimaan.id_penerimaan WHERE detail_penerimaan.id_barang=barang.id_barang AND DATE_FORMAT(penerimaan.tanggal,'%Y-%m')= '$before') as qtyterima1,
         (SELECT SUM(jumlah) FROM pengeluaran JOIN detail_pengeluaran ON pengeluaran.id_pengeluaran = detail_pengeluaran.id_pengeluaran WHERE detail_pengeluaran.id_barang=barang.id_barang AND DATE_FORMAT(pengeluaran.tanggal,'%Y-%m')= '$before') as qtykeluar1,
@@ -22,7 +21,9 @@ class LaporanModel extends CI_Model
         JOIN barang ON detail_pengeluaran.id_barang = barang.id_barang
         JOIN karyawan ON karyawan.id_karyawan = pengeluaran.request_by
         JOIN divisi ON divisi.id_divisi = karyawan.id_divisi
-        WHERE DATE_FORMAT(pengeluaran.tanggal,'%m-%Y') = '$bln' AND divisi.id_divisi ='$iddivisi'");
+        WHERE DATE_FORMAT(pengeluaran.tanggal,'%m-%Y') = '$bln' AND divisi.id_divisi ='$iddivisi'
+        GROUP BY barang.kode_barang
+        ");
     }
 
     function getBulan()

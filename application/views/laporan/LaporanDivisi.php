@@ -10,23 +10,36 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/datatables/datatables.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/fontawesome/css/all.min.css' ?>">
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/select2/dist/css/select2.min.css' ?>">
+    <style>
+        th {
+            background-color: orange;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 5px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
     <?php
     $dt = $data->row_array();
+    error_reporting(0);
     ?>
     <div class="container-fluid">
-        <p class="text-center font-weight-bold text-uppercase">LAPORAN PEMAKAIAN BULAN <?= $dt['bulans'] ?></p>
+        <p class="font-weight-bold">LAPORAN PEMAKAIAN BULAN <?= $dt['bulans'] ?></p>
         <p>Divisi : <?= $dt['nama_divisi'] ?></p>
         <div class="table-responsive">
             <table class="table table-sm table-bordered">
                 <thead class="bg-warning">
-                    <th class="text-center" width="10%">No</th>
-                    <th class="text-center" width="10%">Kode Barang</th>
-                    <th class="text-center" width="60%">Nama Barang</th>
-                    <th class="text-center" width="10%">Jumlah</th>
-                    <th class="text-center" width="10%">Unit</th>
+                    <th width="10%">No</th>
+                    <th width="10%">Kode Barang</th>
+                    <th width="60%">Nama Barang</th>
+                    <th width="10%">Jumlah</th>
+                    <th width="10%">Unit</th>
                 </thead>
                 <tbody>
                     <?php
@@ -39,11 +52,11 @@
                         $jmlh = $a['jlh'];
                     ?>
                         <tr>
-                            <td class="align-middle text-center"><?= $no ?></td>
-                            <td class="align-middle text-center"><?= $kode ?></td>
-                            <td class="align-middle"><?= $nama ?></td>
-                            <td class="align-middle text-center"><?= $jmlh ?></td>
-                            <td class="align-middle"><?= $unit ?></td>
+                            <td><?= $no ?></td>
+                            <td><?= $kode ?></td>
+                            <td style="text-align: left;"><?= $nama ?></td>
+                            <td><?= $jmlh ?></td>
+                            <td><?= $unit ?></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
