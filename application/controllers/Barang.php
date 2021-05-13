@@ -74,4 +74,19 @@ class Barang extends CI_Controller
             redirect('Custom404');
         }
     }
+
+    function update_data()
+    {
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $id = $this->input->post('id');
+            $nama = $this->input->post('nabar');
+            $kode = $this->input->post('kobar');
+            $satuan = $this->input->post('satuan');
+            $kat = $this->input->post('kat');
+            $this->mastermodel->update_data($id, $nama, $kode, $kat, $satuan);
+            redirect('master/barang');
+        } else {
+            redirect('Custom404');
+        }
+    }
 }
