@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 01, 2021 at 07:43 PM
+-- Generation Time: May 13, 2021 at 04:37 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -112,13 +112,13 @@ CREATE TABLE `barang` (
 --
 
 INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `id_kategori`, `satuan`, `stok`, `created_at`, `updated_at`) VALUES
-(1, 'A', 'Ajinomoto', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(1, 'A', 'Ajinomoto', 1, 'Pcs', 89, '0000-00-00 00:00:00', '2021-05-13 13:15:32'),
 (2, 'AKP', 'Air Kelapa', 1, 'Liter', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (3, 'ANG', 'ANGCIU', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (4, 'AQC', 'Air Mineral Cup', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (5, 'ASJ', 'Asam Jawa', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (6, 'ASP', 'ASPARAGUS', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'Air Galon', 'Air Galon', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'Air Galon', 'Air Galon', 1, 'Pcs', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (8, 'Asam', 'Asam Jawa', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (9, 'Asam Kandis', 'Asam Kandis', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (10, 'Ayam Fillet', 'Ayam Fillet', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -126,7 +126,7 @@ INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `id_kategori`, 
 (12, 'Ayam Potong', 'Ayam Potong', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (13, 'B.Ayam', 'Bakso Ayam', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (14, 'B.Gohyong', 'Bumbu Gohyong', 1, 'Botol', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(15, 'B.Ikan', 'Bakso Ikan', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(15, 'B.Ikan', 'Bakso Ikan', 1, 'Kg', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (16, 'BB', 'Bebek', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (17, 'BBM-Bumbu Nasi', 'Bumbu Nasi Kebuli', 1, 'Bks', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (18, 'BBM-KAPRI', 'Kapri (Jgn Pakai)', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -139,11 +139,11 @@ INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `id_kategori`, 
 (25, 'BJD', 'Biji Delima', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (26, 'BKP', 'Baking Powder', 1, 'Botol', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (27, 'BKS', 'Bakso', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(28, 'BKSD', 'Baking Soda', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(28, 'BKSD', 'Baking Soda', 1, 'Pcs', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (29, 'BNC', 'Buncis', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (30, 'BRK', 'Beras Kencur', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (31, 'BT', 'Buntut Sapi', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(32, 'Babas', 'Babas', 1, 'Bks', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(32, 'Babas', 'Babas', 1, 'Bks', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (33, 'Bawang Bombay', 'Bawang Bombay', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (34, 'Bawang Goreng', 'Bawang Goreng', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (35, 'Bawang Merah', 'Bawang Merah', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -171,7 +171,7 @@ INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `id_kategori`, 
 (57, 'Cengkeh', 'Cengkeh', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (58, 'Cln', 'Clink', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (59, 'Cung Kediro', 'Cung Kediro', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(60, 'DE', 'Daging SOP', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(60, 'DE', 'Daging SOP', 1, 'Kg', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (61, 'DK', 'Daging Kambing', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (62, 'Daun Bawang', 'Daun Bawang', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (63, 'Daun Jeruk', 'Daun Jeruk', 1, 'Ons', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -313,8 +313,8 @@ INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `id_kategori`, 
 (199, 'TSESP', 'Tulang Sengkel Sapi', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (200, 'Tahu', 'Tahu', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (201, 'Telur Asin', 'Telur Asin', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(202, 'Telur Ayam', 'Telur Ayam', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(203, 'Telur Puyuh', 'Telur Puyuh', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(202, 'Telur Ayam', 'Telur Ayam', 1, 'Kg', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
+(203, 'Telur Puyuh', 'Telur Puyuh', 1, 'Pcs', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (204, 'Tempe', 'Tempe', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (205, 'Tempoyak', 'Tempoyak', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (206, 'Tepung Beras', 'Tepung Beras', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -334,11 +334,11 @@ INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `id_kategori`, 
 (220, 'Uk', 'Ubi Kayu', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (221, 'Ur', 'Ubi Rambat', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (222, 'V', 'Vainili', 1, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(223, 'WH', 'Wijen Hitam', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(223, 'WH', 'Wijen Hitam', 1, 'Kg', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (224, 'WP', 'Wijen Putih', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (225, 'WT', 'Wortel', 1, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(226, '330ML', 'Air Mineral 330ML', 2, 'Dus', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(227, 'AGAR-AGAR', 'AGAR-AGAR', 2, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(226, '330ML', 'Air Mineral 330ML', 2, 'Dus', 81, '0000-00-00 00:00:00', '2021-05-13 13:15:19'),
+(227, 'AGAR-AGAR', 'AGAR-AGAR', 2, 'Pcs', 71, '0000-00-00 00:00:00', '2021-05-09 13:40:43'),
 (228, 'BBM-PR', 'Prima 600', 2, 'Botol', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (229, 'Buah Alpukat', 'Buah Alpukat', 2, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (230, 'Buah Belimbing', 'Buah Belimbing', 2, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -384,7 +384,7 @@ INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `id_kategori`, 
 (270, 'PSA', 'PSA', 2, 'Ikat', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (271, 'Pacar', 'Pacar Cina', 2, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (272, 'Pms', 'Pemanis', 2, 'Bks', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(273, 'Pr', 'Prima 600ML', 2, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(273, 'Pr', 'Prima 600ML', 2, 'Pcs', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (274, 'R.GD GRM MENTOL', 'Rokok Gudang Garam Mentol', 2, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (275, 'R.GG', 'Rokok GG International', 2, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (276, 'R.GGM', 'Rokok GG MOVE 12', 2, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -413,13 +413,13 @@ INSERT INTO `barang` (`id_barang`, `kode_barang`, `nama_barang`, `id_kategori`, 
 (299, 'WDANK', 'WDANK NUTRISARI', 2, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (300, 'BP-KLIP', 'Klip Uk.8.7x13', 3, 'Ikat', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (301, 'Bom', 'Boom Deterjen Bubuk', 3, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(302, 'CT', 'CLIP + TUTUP', 3, 'Bks', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(302, 'CT', 'CLIP + TUTUP', 3, 'Bks', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (303, 'Custard Powder', 'Custard Powder', 3, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (304, 'GSEI', 'Gas Elpiji Isi Ulang', 3, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (305, 'Harpic', 'Harpic', 3, 'Botol', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (306, 'Hit', 'Hit/Baygon', 3, 'Klng', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (307, 'K.1 Kg', 'Kantong Plastik 1 kg (Hd Pluit uk.28x48)', 3, 'Pcs', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(308, 'K.1/4 KG', 'Kantong Plastik 1/4 Kg (10*18)', 3, 'Ikat', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(308, 'K.1/4 KG', 'Kantong Plastik 1/4 Kg (10*18)', 3, 'Ikat', 0, '0000-00-00 00:00:00', '2021-05-08 14:26:59'),
 (309, 'K.A 1/2 KG', 'Kantong Plastik 1/2 Kg (12*22)', 3, 'Kg', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (310, 'K.A 19', 'Kantong Asoy Susu (Uk.19)', 3, 'Ikat', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
 (311, 'K.A 24', 'Kantong Asoy Susu (Uk.24)', 3, 'Ikat', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
@@ -485,6 +485,17 @@ CREATE TABLE `detail_penerimaan` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `detail_penerimaan`
+--
+
+INSERT INTO `detail_penerimaan` (`id_detail_penerimaan`, `id_penerimaan`, `id_barang`, `jumlah`, `keterangan`, `created_at`, `updated_at`) VALUES
+(23, 7, 226, 100, '', '2021-05-08 16:59:55', '2021-05-08 16:59:55'),
+(24, 7, 1, 89, '', '2021-05-08 16:59:56', '2021-05-08 16:59:56'),
+(25, 7, 227, 90, '', '2021-05-08 16:59:56', '2021-05-08 16:59:56'),
+(26, 8, 226, 9, '', '2021-05-08 17:01:00', '2021-05-08 17:01:00'),
+(27, 8, 1, 19, '', '2021-05-08 17:01:00', '2021-05-08 17:01:00');
+
 -- --------------------------------------------------------
 
 --
@@ -501,6 +512,18 @@ CREATE TABLE `detail_pengeluaran` (
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `detail_pengeluaran`
+--
+
+INSERT INTO `detail_pengeluaran` (`id_detail_pengeluaran`, `id_pengeluaran`, `id_barang`, `jumlah`, `keterangan`, `created_at`, `updated_at`) VALUES
+(3, 3, 226, 10, '', '2021-05-08 17:00:17', '2021-05-08 17:00:17'),
+(4, 3, 1, 8, '', '2021-05-08 17:00:17', '2021-05-08 17:00:17'),
+(5, 4, 226, 18, '', '2021-05-08 17:03:08', '2021-05-08 17:03:08'),
+(6, 4, 1, 11, '', '2021-05-08 17:03:08', '2021-05-08 17:03:08'),
+(7, 5, 227, 1, '', '2021-05-09 12:57:41', '2021-05-09 12:57:41'),
+(8, 6, 227, 18, '', '2021-05-09 13:40:43', '2021-05-09 13:40:43');
+
 -- --------------------------------------------------------
 
 --
@@ -512,10 +535,19 @@ CREATE TABLE `detail_permintaan` (
   `id_permintaan` int(11) NOT NULL,
   `id_barang` int(11) NOT NULL,
   `jumlah` int(11) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `detail_permintaan`
+--
+
+INSERT INTO `detail_permintaan` (`id_detail_permintaan`, `id_permintaan`, `id_barang`, `jumlah`, `keterangan`, `created_at`, `updated_at`) VALUES
+(13, 12, 226, 11, '', '2021-05-09 13:10:52', '2021-05-09 13:10:52'),
+(15, 13, 226, 10, '', '2021-05-09 13:31:53', '2021-05-09 13:31:53'),
+(16, 14, 1, 1, '', '2021-05-09 13:32:26', '2021-05-09 13:32:26');
 
 -- --------------------------------------------------------
 
@@ -576,7 +608,8 @@ INSERT INTO `karyawan` (`id_karyawan`, `id_divisi`, `nama_karyawan`, `created_at
 (14, 4, 'Akbar', '2021-03-30 15:28:45', '2021-03-30 15:29:21'),
 (15, 4, 'Putri', '2021-03-30 15:28:45', '2021-03-30 15:29:21'),
 (16, 4, 'Ryan', '2021-03-30 15:28:45', '2021-03-30 15:29:21'),
-(17, 1, 'Metta Saputra', '2021-04-28 13:31:53', '2021-04-28 13:31:53');
+(17, 1, 'Metta Saputra', '2021-04-28 13:31:53', '2021-04-28 13:31:53'),
+(18, 5, 'Calvin M', '2021-05-08 16:47:37', '2021-05-08 16:47:37');
 
 -- --------------------------------------------------------
 
@@ -613,10 +646,18 @@ CREATE TABLE `penerimaan` (
   `id_supplier` int(11) DEFAULT NULL,
   `id_karyawan` int(11) DEFAULT NULL,
   `jenis_penerimaan` varchar(100) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `penerimaan`
+--
+
+INSERT INTO `penerimaan` (`id_penerimaan`, `tanggal`, `id_supplier`, `id_karyawan`, `jenis_penerimaan`, `keterangan`, `created_at`, `updated_at`) VALUES
+(7, '2021-04-30', 3, NULL, 'Penerimaan Barang dari Supplier', '', '2021-05-08 16:59:55', '2021-05-08 16:59:55'),
+(8, '2021-05-09', 3, NULL, 'Penerimaan Barang dari Supplier', '', '2021-05-08 17:01:00', '2021-05-08 17:01:00');
 
 -- --------------------------------------------------------
 
@@ -629,10 +670,20 @@ CREATE TABLE `pengeluaran` (
   `tanggal` date NOT NULL,
   `request_by` int(11) DEFAULT NULL,
   `jenis_pengeluaran` varchar(100) NOT NULL,
-  `keterangan` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengeluaran`
+--
+
+INSERT INTO `pengeluaran` (`id_pengeluaran`, `tanggal`, `request_by`, `jenis_pengeluaran`, `keterangan`, `created_at`, `updated_at`) VALUES
+(3, '2021-04-30', 1, 'Permintaan Karyawan', '', '2021-05-08 17:00:17', '2021-05-08 17:00:17'),
+(4, '2021-05-09', NULL, 'Pengeluaran Opsional', '', '2021-05-08 17:03:08', '2021-05-08 17:03:08'),
+(5, '2021-05-09', 17, 'Permintaan Karyawan', '', '2021-05-09 12:57:41', '2021-05-09 12:57:41'),
+(6, '2021-05-18', 17, 'Permintaan Karyawan', '', '2021-05-09 13:40:42', '2021-05-09 13:40:42');
 
 -- --------------------------------------------------------
 
@@ -648,6 +699,15 @@ CREATE TABLE `permintaan_karyawan` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `permintaan_karyawan`
+--
+
+INSERT INTO `permintaan_karyawan` (`id_permintaan`, `tanggal_kebutuhan`, `request_by`, `keterangan`, `created_at`, `updated_at`) VALUES
+(12, '2021-05-10', 4, '', '2021-05-09 13:10:52', '2021-05-09 13:10:52'),
+(13, '2021-05-20', 4, '', '2021-05-09 13:31:53', '2021-05-09 13:31:53'),
+(14, '2021-05-20', 4, '', '2021-05-09 13:32:26', '2021-05-09 13:32:26');
 
 -- --------------------------------------------------------
 
@@ -670,7 +730,9 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`id_supplier`, `nama_supplier`, `contact_person`, `no_telp`, `alamat`, `created_at`, `updated_at`) VALUES
-(2, 'PT ABC', 'William', '08973051987', 'Tangerang', '2021-03-30 16:41:32', '2021-03-30 16:41:32');
+(2, 'PT ABC', 'William', '08973051987', 'Tangerang', '2021-03-30 16:41:32', '2021-03-30 16:41:32'),
+(3, 'PT. XYZ', 'Metta Saputra', '08973051987', 'Celentang', '2021-05-04 12:15:51', '2021-05-04 12:15:51'),
+(4, 'Celentang', 'Celentang', '08973051987', 'Celentang', '2021-05-04 12:16:03', '2021-05-04 12:16:03');
 
 -- --------------------------------------------------------
 
@@ -692,10 +754,12 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id_user`, `nama_user`, `personal_id`, `level_akses`, `created_at`, `updated_at`) VALUES
-(1, 'Metta Saputra', '0220m2a', 1, '2021-03-28 16:26:37', '2021-03-30 14:49:42'),
+(1, 'Metta Saputra', '0220m2a', 2, '2021-03-28 16:26:37', '2021-05-08 16:52:12'),
 (2, 'Siti Mulyati', 'SITIMULY', 3, '2021-03-30 15:45:30', '2021-04-23 10:38:40'),
 (4, 'Yudhistira', '', 3, '2021-03-30 16:18:23', '2021-03-30 16:18:23'),
-(5, 'Verawati', 'YDHS1234', 3, '2021-03-30 16:21:21', '2021-03-30 16:21:21');
+(5, 'Verawati', 'YDHS1234', 3, '2021-03-30 16:21:21', '2021-03-30 16:21:21'),
+(6, 'Calvin M', 'CM0143', 2, '2021-05-08 16:47:55', '2021-05-08 16:47:55'),
+(7, 'Polyanski', 'POLY1234', 1, '2021-05-08 16:52:30', '2021-05-08 16:52:30');
 
 --
 -- Indexes for dumped tables
@@ -793,25 +857,25 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `barang`
 --
 ALTER TABLE `barang`
-  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=357;
+  MODIFY `id_barang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=358;
 
 --
 -- AUTO_INCREMENT for table `detail_penerimaan`
 --
 ALTER TABLE `detail_penerimaan`
-  MODIFY `id_detail_penerimaan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_penerimaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `detail_pengeluaran`
 --
 ALTER TABLE `detail_pengeluaran`
-  MODIFY `id_detail_pengeluaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_detail_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `detail_permintaan`
 --
 ALTER TABLE `detail_permintaan`
-  MODIFY `id_detail_permintaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_detail_permintaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `divisi`
@@ -823,7 +887,7 @@ ALTER TABLE `divisi`
 -- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id_karyawan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -835,31 +899,31 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `penerimaan`
 --
 ALTER TABLE `penerimaan`
-  MODIFY `id_penerimaan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_penerimaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
-  MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pengeluaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `permintaan_karyawan`
 --
 ALTER TABLE `permintaan_karyawan`
-  MODIFY `id_permintaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_permintaan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `supplier`
 --
 ALTER TABLE `supplier`
-  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_supplier` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
