@@ -168,8 +168,75 @@
                             <?php endif; ?>
                             <td class="text-center align-items-middle">
                                 <a href="<?= base_url() . 'barang/history?id=' . $id ?>" class="btn btn-sm btn-success">Kartu Stock</a>
-                                <a href="<?= base_url() . 'barang/tracking_data?id=' . $id ?>" class="btn btn-sm btn-primary">List Supplier</a>
-                                <a href="<?= base_url() . 'barang/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                <a href="<?= base_url() . 'barang/tracking_data?id=' . $id ?>" class="btn btn-sm btn-primary">Supplier</a>
+                                <a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modelId<?= $id ?>">
+                                    <i class="fas fa-pen    "></i> Edit
+                                </a>
+                                <a href="<?= base_url() . 'barang/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>
+
+
+                                <div class="modal fade" id="modelId<?= $id ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Edit Data Barang</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="<?= base_url() . 'barang/update_data' ?>" method="POST">
+                                                <div class="modal-body text-left">
+                                                    <div class="form-group">
+                                                        Kode Barang
+                                                        <input type="hidden" name="id" value="<?= $id ?>" class="form-control form-control-sm">
+                                                        <input type="text" name="kobar" value="<?= $kode ?>" class="form-control form-control-sm">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        Nama Barang
+                                                        <input type="text" name="nabar" value="<?= $nama ?>" class="form-control form-control-sm">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        Kategori Barang
+                                                        <select name="kat" class="form-control form-control-sm">
+                                                            <?php
+                                                            $sql = $this->db->query("SELECT * FROM kategori GROUP BY nama_kategori");
+                                                            foreach ($sql->result_array() as $x) :
+                                                                $idkat = $x['id_kategori'];
+                                                                $namakat = $x['nama_kategori'];
+                                                            ?>
+                                                                <?php if ($kat == $namakat) : ?>
+                                                                    <option value="<?= $idkat ?>" selected><?= $namakat ?></option>
+                                                                <?php else : ?>
+                                                                    <option value="<?= $idkat ?>"><?= $namakat ?></option>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        Satuan
+                                                        <select name="satuan" class="form-control form-control-sm">
+                                                            <?php
+                                                            $sql = $this->db->query("SELECT satuan FROM barang GROUP BY satuan");
+                                                            foreach ($sql->result_array() as $x) :
+                                                                $unit = $x['satuan'];
+                                                            ?>
+                                                                <?php if ($satuan == $unit) : ?>
+                                                                    <option value="<?= $unit ?>" selected><?= $unit ?></option>
+                                                                <?php else : ?>
+                                                                    <option value="<?= $unit ?>"><?= $unit ?></option>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
+                                                    <input type="submit" class="btn btn-primary btn-sm" value="Update">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     <?php endforeach; ?>
