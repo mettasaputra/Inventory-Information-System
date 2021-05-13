@@ -18,20 +18,27 @@
     ?>
     <div class="container-fluid my-4">
         <h3 class="text-center">KARTU STOCK</h3>
-        <table>
-            <tr>
-                <td class="font-weight-bold" width="180px">Kategori</td>
-                <td> : <?= $a['nama_kategori'] ?></td>
-            </tr>
-            <tr>
-                <td class="font-weight-bold">Nama Barang</td>
-                <td> : <?= $a['nama_barang'] ?></td>
-            </tr>
-            <tr>
-                <td class="font-weight-bold">Satuan</td>
-                <td> : <?= $a['satuan'] ?></td>
-            </tr>
-        </table>
+        <div class="row">
+            <div class="col-md-8">
+                <table>
+                    <tr>
+                        <td class="font-weight-bold" width="180px">Kategori</td>
+                        <td> : <?= $a['nama_kategori'] ?></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Nama Barang</td>
+                        <td> : <?= $a['nama_barang'] ?></td>
+                    </tr>
+                    <tr>
+                        <td class="font-weight-bold">Satuan</td>
+                        <td> : <?= $a['satuan'] ?></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-4">
+                <a href="<?= base_url() . 'barang/cetak_kartu?id=' . $a['id_barang'] ?>" class="btn btn-sm btn-success"><i class="fa fa-download" aria-hidden="true"></i> Download Kartu Stock</a>
+            </div>
+        </div>
         <div class="card rounded-0 my-2" style="height: 350px; overflow-y:auto;">
             <div class="card-body p-0">
                 <div class="card-text">
@@ -72,7 +79,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <script src="<?= base_url() . 'assets/js/jquery-3.5.1.js' ?>" type="text/javascript"></script>
     <script src="<?= base_url() . 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' ?>" type="text/javascript"></script>

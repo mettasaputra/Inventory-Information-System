@@ -50,6 +50,20 @@ class Barang extends CI_Controller
         }
     }
 
+    function cetak_kartu()
+    {
+        if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $id = $this->input->get('id');
+            $x['brg'] = $this->mastermodel->get_detail_barang($id);
+            $x['data'] = $this->mastermodel->kartu_stok($id);
+            header("Content-type: application/vnd-ms-excel");
+            header("Content-Disposition: attachment; filename=a.xls");
+            $this->load->view('laporan/CetakKartuStock', $x);
+        } else {
+            redirect('Custom404');
+        }
+    }
+
     function cetak_data()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
