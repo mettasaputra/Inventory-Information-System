@@ -16,7 +16,7 @@
 <body>
     <?php $this->load->view('partials/nav'); ?>
     <div class="container-fluid">
-        <h4 class="font-weight-bold my-3">History Pengeluaran Barang (Retur, Stock Opname, dll)</h4>
+        <h4 class="font-weight-bold my-3">History Pengeluaran Barang Lain-Lain</h4>
         <hr />
         <div class="row">
             <div class="col-md-6">
@@ -30,10 +30,10 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Cari History Pengeluaran</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                <h5 class="modal-title">Cari History Pengeluaran< Lain-Lain/h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
                             </div>
                             <form action="<?= base_url() . 'pengeluaran/datahistorylain' ?>" method="POST">
                                 <div class="modal-body">

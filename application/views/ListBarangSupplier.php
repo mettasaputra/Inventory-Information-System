@@ -39,9 +39,9 @@
                         <table class="table table-sm">
                             <thead>
                                 <th>No</th>
-                                <th>Nama Supplier</th>
-                                <th>Contact Person</th>
-                                <th>No Telp</th>
+                                <th>Nama Barang</th>
+                                <th>Stok</th>
+                                <th>Satuan</th>
                             </thead>
                             <tbody>
                                 <?php
@@ -55,8 +55,8 @@
                                     <tr>
                                         <td class="text-center"><?= $no ?></td>
                                         <td><?= $nama ?></td>
-                                        <td><?= $cp ?></td>
                                         <td class="text-center"><?= $telp ?></td>
+                                        <td class="text-center"><?= $cp ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>

@@ -15,7 +15,7 @@
 <body>
     <?php $this->load->view('partials/nav'); ?>
     <div class="container-fluid">
-        <h4 class="font-weight-bold my-3">History Penerimaan Barang dari Supplier</h4>
+        <h4 class="font-weight-bold my-3">History Penerimaan Barang Lain-Lain</h4>
         <hr />
         <div class="row">
             <div class="col-md-6">
@@ -29,7 +29,8 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Cari History Penerimaan</h5>
+                                <h5 class="modal-title">History Penerimaan Barang Lain-Lain</h5>
+
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

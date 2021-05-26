@@ -75,7 +75,7 @@
             <table class="table table-sm table-bordered table-striped">
                 <thead>
                     <th class="text-center font-weight-normal">No</th>
-                    <th class="text-center font-weight-normal">Nama Supplier</th>
+                    <th class="text-center font-weight-normal">Nama Karyawan</th>
                     <th class="text-center font-weight-normal">Divisi</th>
                     <th class="text-center font-weight-normal">Opsi</th>
                 </thead>
