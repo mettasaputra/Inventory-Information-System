@@ -75,13 +75,13 @@ class Barang extends CI_Controller
             $this->session->set_userdata('id', $id);
             if ($id == "all") {
                 $x['data'] = $this->mastermodel->get_data_barang();
-                // header("Content-type: application/vnd-ms-excel");
-                // header("Content-Disposition: attachment; filename=Data_Barang.xls");
+                header("Content-type: application/vnd-ms-excel");
+                header("Content-Disposition: attachment; filename=Data_Barang.xls");
                 $this->load->view('laporan/CetakDataBarang', $x);
             } else {
                 $x['data'] = $this->mastermodel->cetak_data_barang($id);
-                // header("Content-type: application/vnd-ms-excel");
-                // header("Content-Disposition: attachment; filename=Data_Barang.xls");
+                header("Content-type: application/vnd-ms-excel");
+                header("Content-Disposition: attachment; filename=Data_Barang.xls");
                 $this->load->view('laporan/CetakDataBarang', $x);
             }
         } else {

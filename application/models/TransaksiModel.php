@@ -113,7 +113,7 @@ class TransaksiModel extends CI_Model
 
     function input_pengeluaran($tgl, $karyawan, $ket)
     {
-        $this->db->query("INSERT INTO pengeluaran (tanggal, request_by, keterangan, jenis_pengeluaran) VALUES ('$tgl','$karyawan','$ket','Permintaan Karyawan')");
+        $this->db->query("INSERT INTO pengeluaran (tanggal, request_by, keterangan, jenis_pengeluaran) VALUES ('$tgl','$karyawan','$ket','Permintaan dari Karyawan')");
         foreach ($this->cart->contents() as $item) {
             $id = $this->get_id_pengeluaran();
             $idbrg = $item['id'];
