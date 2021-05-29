@@ -26,7 +26,17 @@
 
 <body>
     <div class="container-fluid my-3">
-        <h4><b>LAPORAN STOK</b></h4>
+        <table>
+            <tr>
+                <td style="text-align: left; border:none; font-weight: bold; font-size:18pt" colspan="8">Laporan Stok Bulan <?= date("F Y", strtotime($this->session->userdata('bln'))); ?></td>
+            </tr>
+            <tr>
+            <tr>
+                <td colspan="4" style="text-align: left; border:none">Tanggal Cetak : <?= Date('d-m-Y H:i') ?></td>
+                <td colspan="4" style="text-align: left; border:none">Dicetak oleh : <?= $this->session->userdata('nama') ?></td>
+            </tr>
+            </tr>
+        </table>
         <div class="row">
             <div class="table-responsive my-3">
                 <table class="table table-sm table-bordered">

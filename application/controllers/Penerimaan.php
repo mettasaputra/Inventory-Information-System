@@ -6,6 +6,10 @@ class Penerimaan extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('masuk') != TRUE) {
+            $url = base_url('administrator');
+            redirect($url);
+        }
         $this->load->model('TransaksiModel', 'transaksimodel');
         $this->load->model('MasterModel', 'mastermodel');
         $this->load->library('session');
@@ -17,6 +21,7 @@ class Penerimaan extends CI_Controller
     function index()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+            $this->cart->destroy();
             $this->load->view('PenerimaanView');
         } else {
             redirect('Custom404');

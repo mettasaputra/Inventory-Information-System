@@ -111,6 +111,7 @@
                             <div class="form-group">
                                 Kategori Barang
                                 <select name="id" class="form-control form-control-sm">
+                                    <option value="all">Semua Data</option>
                                     <?php
                                     $sql = $this->db->query("SELECT * FROM kategori");
                                     foreach ($sql->result_array() as $kat) :

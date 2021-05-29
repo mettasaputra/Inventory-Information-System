@@ -5,11 +5,13 @@ class Administrator extends CI_Controller
     {
         parent::__construct();
         $this->load->model('UserModel', 'usermodel');
+        $this->load->model('MasterModel', 'mastermodel');
     }
 
     function index()
     {
-        $this->load->view('LoginView');
+        $x['kyw'] = $this->mastermodel->get_data_karyawan();
+        $this->load->view('LoginView', $x);
         $this->session->sess_destroy();
     }
     function auth()

@@ -6,6 +6,10 @@ class Master extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('masuk') != TRUE) {
+            $url = base_url('administrator');
+            redirect($url);
+        }
         $this->load->model('MasterModel', 'mastermodel');
         $this->load->model('UserModel', 'usermodel');
         $this->load->model('LaporanModel', 'laporanmodel');

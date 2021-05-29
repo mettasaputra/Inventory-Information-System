@@ -30,8 +30,18 @@
     error_reporting(0);
     ?>
     <div class="container-fluid">
-        <p class="font-weight-bold">LAPORAN PEMAKAIAN BULAN <?= $dt['bulans'] ?></p>
-        <p>Divisi : <?= $dt['nama_divisi'] ?></p>
+        <table>
+            <tr>
+                <td style="text-align: left; border:none; font-weight: bold; font-size:18pt" colspan="8">Laporan Pemakaian Bulan <?= $dt['bulans'] ?></td>
+            </tr>
+            <tr>
+                <td colspan="8" style="text-align: left; border:none">Divisi : <?= $dt['nama_divisi'] ?></td>
+            </tr>
+            <tr>
+                <td colspan="4" style="text-align: left; border:none">Tanggal Cetak : <?= Date('d-m-Y H:i') ?></td>
+                <td colspan="4" style="text-align: left; border:none">Dicetak oleh : <?= $this->session->userdata('nama') ?></td>
+            </tr>
+        </table>
         <div class="table-responsive">
             <table class="table table-sm table-bordered">
                 <thead class="bg-warning">
@@ -62,6 +72,7 @@
                 </tbody>
             </table>
         </div>
+
     </div>
     <script src="<?= base_url() . 'assets/js/jquery-3.5.1.js' ?>" type="text/javascript"></script>
     <script src="<?= base_url() . 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' ?>" type="text/javascript"></script>

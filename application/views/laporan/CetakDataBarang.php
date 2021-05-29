@@ -29,8 +29,23 @@
     $dt = $data->row_array();
     ?>
     <div class="container-fluid my-3">
-        <h4><b>Data Barang <?= $dt['nama_kategori'] ?></b></h4>
-
+        <table>
+            <tr>
+                <?php
+                if ($this->session->userdata('id') == "all") :
+                ?>
+                    <td style="text-align: left; border:none; font-weight: bold; font-size:18pt" colspan="8">Data Barang</td>
+                <?php else : ?>
+                    <td style="text-align: left; border:none; font-weight: bold; font-size:18pt" colspan="8">Data Barang <?= $dt['nama_kategori'] ?></td>
+                <?php endif; ?>
+            </tr>
+            <tr>
+            <tr>
+                <td colspan="4" style="text-align: left; border:none">Tanggal Cetak : <?= Date('d-m-Y H:i') ?></td>
+                <td colspan="4" style="text-align: left; border:none">Dicetak oleh : <?= $this->session->userdata('nama') ?></td>
+            </tr>
+            </tr>
+        </table>
         <div class="row">
             <div class="table-responsive my-3">
                 <table class="table table-sm table-bordered">
@@ -38,6 +53,9 @@
                         <th>No</th>
                         <th>Kode Barang</th>
                         <th>Nama Barang</th>
+                        <?php if ($this->session->userdata('id') == "all") : ?>
+                            <th>Kategori</th>
+                        <?php endif; ?>
                         <th>Satuan</th>
                     </thead>
                     <tbody>
@@ -48,11 +66,15 @@
                             $kode = $a['kode_barang'];
                             $nama = $a['nama_barang'];
                             $satuan = $a['satuan'];
+                            $kat = $a['kat'];
                         ?>
                             <tr>
                                 <td><?= $no ?></td>
                                 <td><?= $kode ?></td>
                                 <td style="text-align: left !important;"><?= $nama ?></td>
+                                <?php if ($this->session->userdata('id') == "all") : ?>
+                                    <td><?= $kat ?></td>
+                                <?php endif; ?>
                                 <td><?= $satuan ?></td>
                             </tr>
                         <?php endforeach; ?>

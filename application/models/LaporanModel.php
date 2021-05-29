@@ -15,7 +15,7 @@ class LaporanModel extends CI_Model
 
     function laporanPemakaian($bln, $iddivisi)
     {
-        return $this->db->query("SELECT barang.*, divisi.nama_divisi, DATE_FORMAT(pengeluaran.tanggal,'%M') as bulans,
+        return $this->db->query("SELECT barang.*, divisi.nama_divisi, DATE_FORMAT(pengeluaran.tanggal,'%M %Y') as bulans,
         (SELECT SUM(detail_pengeluaran.jumlah) FROM detail_pengeluaran WHERE detail_pengeluaran.id_barang = barang.id_barang) as jlh FROM detail_pengeluaran 
         JOIN pengeluaran ON pengeluaran.id_pengeluaran = detail_pengeluaran.id_pengeluaran
         JOIN barang ON detail_pengeluaran.id_barang = barang.id_barang

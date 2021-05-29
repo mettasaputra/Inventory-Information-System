@@ -18,12 +18,13 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h4 class="card-title navy">Daftar Permintaan</h4>
+                        <h4 class="card-title navy">Daftar Permintaan Barang</h4>
                         <p class="lead">
                             Nama Karyawan : <?= $this->session->userdata('nama') ?>
                         </p>
                     </div>
                     <div class="col-md-6">
+                        <a href="<?= base_url() . 'administrator/logout' ?>" class="ml-2 btn btn-sm btn-info float-right"> Logout</a>
                         <a href="<?= base_url() . 'permintaan' ?>" class="btn btn-sm btn-primary float-right"><i class="fa fa-pencil" aria-hidden="true"></i> Ajukan Permintaan Barang</a>
                     </div>
                 </div>

@@ -5,7 +5,7 @@ class UserModel extends CI_Model
 {
     function cek_admin($idpersonal)
     {
-        return $this->db->query("SELECT * FROM user WHERE personal_id='$idpersonal'");
+        return $this->db->query("SELECT * FROM user WHERE personal_id='$idpersonal' AND status='Aktif'");
     }
 
     function get_data_user()

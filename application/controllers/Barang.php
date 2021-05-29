@@ -6,6 +6,10 @@ class Barang extends CI_Controller
     function __construct()
     {
         parent::__construct();
+        if ($this->session->userdata('masuk') != TRUE) {
+            $url = base_url('administrator');
+            redirect($url);
+        }
         $this->load->model('MasterModel', 'mastermodel');
     }
 
@@ -68,10 +72,18 @@ class Barang extends CI_Controller
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $id = $this->input->post('id');
-            $x['data'] = $this->mastermodel->cetak_data_barang($id);
-            header("Content-type: application/vnd-ms-excel");
-            header("Content-Disposition: attachment; filename=Data_Barang.xls");
-            $this->load->view('laporan/CetakDataBarang', $x);
+            $this->session->set_userdata('id', $id);
+            if ($id == "all") {
+                $x['data'] = $this->mastermodel->get_data_barang();
+                // header("Content-type: application/vnd-ms-excel");
+                // header("Content-Disposition: attachment; filename=Data_Barang.xls");
+                $this->load->view('laporan/CetakDataBarang', $x);
+            } else {
+                $x['data'] = $this->mastermodel->cetak_data_barang($id);
+                // header("Content-type: application/vnd-ms-excel");
+                // header("Content-Disposition: attachment; filename=Data_Barang.xls");
+                $this->load->view('laporan/CetakDataBarang', $x);
+            }
         } else {
             redirect('Custom404');
         }

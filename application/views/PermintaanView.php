@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets/vendor/select2/dist/css/select2.min.css' ?>">
     <style>
         .card {
-            height: 490px;
+            height: 510px;
         }
     </style>
 </head>
@@ -32,6 +32,7 @@
             <?php
             if ($this->session->userdata('akses') == '3') : ?>
                 <div class="col-md-6">
+                    <a href="<?= base_url() . 'administrator/logout' ?>" class="my-3 ml-2 btn btn-sm btn-info float-right"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                     <a href="<?= base_url() . 'permintaan/detail_permintaan' ?>" class="my-3 btn btn-sm btn-primary float-right"><i class="fa fa-eye" aria-hidden="true"></i> Lihat Permintaan</a>
                 </div>
             <?php endif; ?>
