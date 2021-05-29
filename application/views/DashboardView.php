@@ -13,7 +13,9 @@
 </head>
 
 <body>
-	<?php $this->load->view('partials/nav'); ?>
+	<?php $this->load->view('partials/nav');
+	header("refresh: 10");
+	?>
 	<div class="container-fluid my-3">
 		<div class="card rounded-0 bg-light" style="height: 350px; overflow-y:auto">
 			<div class="card-body">
@@ -64,6 +66,8 @@
 	<script src="<?= base_url() . 'assets/vendor/bootstrap/dist/js/bootstrap.min.js' ?>" type="text/javascript"></script>
 	<script src="<?= base_url() . 'assets/vendor/datatables/datatables.min.js' ?>"></script>
 	<script>
+		// window.location.reload();
+
 		$(document).ready(function() {
 			$('table').DataTable();
 		})
