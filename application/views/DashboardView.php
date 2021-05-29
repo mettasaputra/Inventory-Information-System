@@ -14,7 +14,7 @@
 
 <body>
 	<?php $this->load->view('partials/nav');
-	header("refresh: 10");
+	header("refresh: 15");
 	?>
 	<div class="container-fluid my-3">
 		<div class="card rounded-0 bg-light" style="height: 350px; overflow-y:auto">
