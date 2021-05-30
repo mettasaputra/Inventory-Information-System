@@ -93,6 +93,7 @@
                     <th class="text-center font-weight-normal">Divisi</th>
                     <th class="text-center font-weight-normal">Personal ID</th>
                     <th class="text-center font-weight-normal">Level Akses</th>
+                    <th class="text-center font-weight-normal">Status</th>
                     <th class="text-center font-weight-normal">Opsi</th>
                 </thead>
                 <tbody>
@@ -104,6 +105,7 @@
                         $nama = $a['nama_user'];
                         $divisi = $a['nama_divisi'];
                         $personal = $a['personal_id'];
+                        $ket = $a['keterangan'];
                         $lvl = $a['level_akses'];
                     ?>
                         <tr>
@@ -119,8 +121,23 @@
                             <?php elseif ($lvl == 3) : ?>
                                 <td class="text-center align-items-middle">User</td>
                             <?php endif; ?>
+                            <?php
+                            if ($ket != 'Aktif') : ?>
+                                <td class="align-items-middle font-weight-bold bg-warning"><?= $ket ?></td>
+                            <?php else : ?>
+                                <td class="align-items-middle"><?= $ket ?></td>
+                            <?php endif; ?>
                             <td class="text-center align-items-middle">
-                                <a href="<?= base_url() . 'user/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                <?php
+                                if ($lvl != 1) :
+                                    if ($ket == 'Aktif') : ?>
+                                        <a href="<?= base_url() . 'user/set_nonactive?id=' . $id ?>" class="btn btn-sm btn-warning">Non-Aktifkan</a>
+                                        <a href="<?= base_url() . 'user/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                    <?php else : ?>
+                                        <a href="<?= base_url() . 'user/set_active?id=' . $id ?>" class="btn btn-sm btn-success text-white">Aktifkan</a>
+                                        <a href="<?= base_url() . 'user/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>

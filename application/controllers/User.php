@@ -41,11 +41,24 @@ class User extends CI_Controller
         }
     }
 
-
     function set_active()
     {
-        $id = $this->input->get('iduser');
+        $id = $this->input->get('id');
+        $this->usermodel->set_active($id);
+        redirect('master/user');
+    }
+
+    function set_active_from_dashboard()
+    {
+        $id = $this->input->get('id');
         $this->usermodel->set_active($id);
         redirect('dashboard');
+    }
+
+    function set_nonactive()
+    {
+        $id = $this->input->get('id');
+        $this->usermodel->set_nonactive($id);
+        redirect('master/user');
     }
 }

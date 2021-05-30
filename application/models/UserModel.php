@@ -33,8 +33,19 @@ class UserModel extends CI_Model
         $this->db->query("UPDATE user SET keterangan='Aktif' WHERE id_user='$id'");
     }
 
+    function set_nonactive($id)
+    {
+        $this->db->query("UPDATE user SET keterangan='Non Aktif' WHERE id_user='$id'");
+    }
+
     function lupa_password($nama, $status)
     {
         $this->db->query("UPDATE user SET keterangan='$status' WHERE id_user='$nama'");
+    }
+
+    function get_non_active()
+    {
+        return $this->db->query("SELECT user.*, divisi.nama_divisi FROM user JOIN karyawan ON user.nama_user = karyawan.nama_karyawan 
+        JOIN divisi ON karyawan.id_divisi = divisi.id_divisi WHERE keterangan != 'Aktif' ORDER BY nama_user ASC");
     }
 }

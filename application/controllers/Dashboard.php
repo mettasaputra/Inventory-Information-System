@@ -20,6 +20,7 @@ class Dashboard extends CI_Controller
 	function index()
 	{
 		if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+			$x['user'] = $this->usermodel->get_non_active();
 			$x['data'] = $this->transaksimodel->tampil_permintaan();
 			$this->load->view('DashboardView', $x);
 		} else {
