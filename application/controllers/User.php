@@ -40,4 +40,12 @@ class User extends CI_Controller
             redirect('Custom404');
         }
     }
+
+
+    function set_active()
+    {
+        $id = $this->input->get('iduser');
+        $this->usermodel->set_active($id);
+        redirect('dashboard');
+    }
 }

@@ -10,7 +10,7 @@ class Administrator extends CI_Controller
 
     function index()
     {
-        $x['kyw'] = $this->mastermodel->get_data_karyawan();
+        $x['user'] = $this->usermodel->get_data_user();
         $this->load->view('LoginView', $x);
         $this->session->sess_destroy();
     }
@@ -54,17 +54,42 @@ class Administrator extends CI_Controller
             </script>";
         }
     }
+
     function gagallogin()
     {
         echo "<script>
-                alert('Personal ID anda salah');
+                alert('Personal ID anda salah atau belum terdaftar');
                 window.location.href='/portal';
             </script>";
     }
+
     function logout()
     {
         $this->session->sess_destroy();
         $url = base_url('administrator');
         redirect($url);
+    }
+
+    function lupa()
+    {
+        $nama = $this->input->post('nama');
+        $status = $this->input->post('status');
+        $this->usermodel->lupa_password($nama, $status);
+        echo "<script>
+                alert('Terima kasih! Harap menunggu informasi dari bagian yang berwenang!');
+                window.location.href='/portal';
+        </script>";
+    }
+
+    function registrasi()
+    {
+        $nama = $this->input->post('nama');
+        $personal = $this->input->post('personal');
+        $level = $this->input->post('level');
+        $this->usermodel->registrasi($nama, $personal, $level);
+        echo "<script>
+                alert('Terima kasih! Harap menunggu informasi dari bagian yang berwenang!');
+                window.location.href='/portal';
+        </script>";
     }
 }

@@ -5,7 +5,7 @@ class UserModel extends CI_Model
 {
     function cek_admin($idpersonal)
     {
-        return $this->db->query("SELECT * FROM user WHERE personal_id='$idpersonal' AND status='Aktif'");
+        return $this->db->query("SELECT * FROM user WHERE personal_id='$idpersonal' AND keterangan='Aktif'");
     }
 
     function get_data_user()
@@ -21,5 +21,20 @@ class UserModel extends CI_Model
     function delete_data($id)
     {
         $this->db->query("DELETE FROM user WHERE id_user='$id'");
+    }
+
+    function registrasi($nama, $personal, $level)
+    {
+        $this->db->query("INSERT INTO user(nama_user,personal_id,level_akses, keterangan) VALUES('$nama','$personal','$level', 'Pendaftaran')");
+    }
+
+    function set_active($id)
+    {
+        $this->db->query("UPDATE user SET keterangan='Aktif' WHERE id_user='$id'");
+    }
+
+    function lupa_password($nama, $status)
+    {
+        $this->db->query("UPDATE user SET keterangan='$status' WHERE id_user='$nama'");
     }
 }

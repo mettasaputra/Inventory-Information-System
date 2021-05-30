@@ -138,7 +138,7 @@ class Permintaan extends CI_Controller
         $cek = count($this->cart->contents());
         $id = $this->input->get('id');
         if ($cek > 0) {
-            $tgl = $this->session->userdata('tgl');
+            $tgl = Date('Y-m-d');
             $karyawan = $this->session->userdata('kyw');
             $keterangan = $this->session->userdata('ket');
             $this->transaksimodel->input_pengeluaran($tgl, $karyawan, $keterangan);
