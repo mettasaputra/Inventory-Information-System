@@ -71,12 +71,12 @@
                                         </div>
                                         <div class="form-group mt-2 ">
                                             Permasalahan
-                                            <textarea class="form-control form-control-sm" name="status"></textarea>
+                                            <textarea class="form-control form-control-sm" name="status" required></textarea>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
-                                        <input type="submit" class="btn btn-primary btn-sm" value="Ajukan">
+                                        <input type="submit" class="btn btn-primary btn-sm" value="Laporkan">
                                     </div>
                                 </form>
                             </div>
@@ -109,11 +109,11 @@
                                         <div class="form-group mt-3 mb-0">
                                             <label>Level Akses</label><br />
                                             <div class="form-check-inline">
-                                                <input class="form-check-input" type="radio" name="level" value="2">
+                                                <input class="form-check-input" type="radio" name="level" value="2" required>
                                                 <label class="form-check-label" for="inlineRadio2">Administrator</label>
                                             </div>
                                             <div class="form-check-inline">
-                                                <input class="form-check-input" type="radio" name="level" value="3">
+                                                <input class="form-check-input" type="radio" name="level" value="3" required>
                                                 <label class="form-check-label" for="inlineRadio3">User</label>
                                             </div>
                                         </div>
@@ -124,7 +124,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Batal</button>
-                                        <button type="submit" class="btn btn-primary btn-sm">Laporkan</button>
+                                        <button type="submit" class="btn btn-primary btn-sm">Daftar</button>
                                     </div>
                                 </form>
                             </div>

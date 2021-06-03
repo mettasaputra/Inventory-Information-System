@@ -45,7 +45,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Tanggal Dibutuhkan</label>
                                 <div class="col-sm-8">
-                                    <input type="date" class="form-control" name="tgl" value="<?= $this->session->userdata('tgl') ?>">
+                                    <input type="date" class="form-control" name="tgl" value="<?= $this->session->userdata('tgl') ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">

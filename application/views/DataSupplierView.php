@@ -129,13 +129,13 @@
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label">Alamat Supplier</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" class="form-control form-control-sm" value="<?= $alamat ?>" readonly>
+                                                            <input type="text" class="form-control form-control-sm" value="<?= $alamat ?>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label">Contact Person</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" class="form-control form-control-sm" name="ctc" value="<?= $ctc ?>">
+                                                            <input type="text" class="form-control form-control-sm" name="ctc" value="<?= $ctc ?>" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">

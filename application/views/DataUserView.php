@@ -58,15 +58,15 @@
                                         <label class="col-sm-3 col-form-label">Level Akses</label>
                                         <div class="col-sm-9 mt-2">
                                             <div class="form-group form-check-inline">
-                                                <input class="form-check-input" type="radio" name="level" value="1">
+                                                <input class="form-check-input" type="radio" name="level" value="1" required>
                                                 <label class="form-check-label" for="inlineRadio1">Manager</label>
                                             </div>
                                             <div class="form-group form-check-inline">
-                                                <input class="form-check-input" type="radio" name="level" value="2">
+                                                <input class="form-check-input" type="radio" name="level" value="2" required>
                                                 <label class="form-check-label" for="inlineRadio2">Administrator</label>
                                             </div>
                                             <div class="form-group form-check-inline">
-                                                <input class="form-check-input" type="radio" name="level" value="3">
+                                                <input class="form-check-input" type="radio" name="level" value="3" required>
                                                 <label class="form-check-label" for="inlineRadio3">User</label>
                                             </div>
                                         </div>

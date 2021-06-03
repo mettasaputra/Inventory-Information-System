@@ -92,7 +92,7 @@
                                 if ($this->session->userdata('akses') == 1 || $this->session->userdata('akses') == 2) : ?>
                                     <a href="<?php echo base_url() . 'permintaan/into_pengeluaran?id=' . $a['id_permintaan'] ?>" class=" btn btn-primary btn-sm"><span class="fa fa-check"></span> Acc Permintaan</a>
                                 <?php else : ?>
-                                    <a href="<?php echo base_url() . 'permintaan/detail_permintaan' ?>" class=" btn btn-primary btn-sm"><span class="fa fa-home"></span> Kembali ke Halaman Utama</a>
+                                    <a href="<?php echo base_url() . 'permintaan/detail_permintaan' ?>" class=" btn btn-primary btn-sm"><span class="fa fa-home"></span> Daftar Permintaan Karyawan</a>
                                 <?php endif; ?>
                             </div>
                         </div>

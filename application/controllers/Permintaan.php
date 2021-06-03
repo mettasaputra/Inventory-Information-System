@@ -27,6 +27,7 @@ class Permintaan extends CI_Controller
 
     function detail_permintaan()
     {
+        $this->cart->destroy();
         $x['data'] = $this->transaksimodel->get_detail_permintaan();
         $this->load->view('PermintaanKaryawanView', $x);
     }

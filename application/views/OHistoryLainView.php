@@ -30,23 +30,23 @@
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title">Cari History Pengeluaran< Lain-Lain/h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
+                                <h5 class="modal-title">History Pengeluaran Barang Lain-Lain</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
                             </div>
                             <form action="<?= base_url() . 'pengeluaran/datahistorylain' ?>" method="POST">
                                 <div class="modal-body">
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Dari</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" name="from">
+                                            <input type="date" class="form-control" name="from" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Sampai</label>
                                         <div class="col-sm-9">
-                                            <input type="date" class="form-control" name="to">
+                                            <input type="date" class="form-control" name="to" required>
                                         </div>
                                     </div>
                                 </div>

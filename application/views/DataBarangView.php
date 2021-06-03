@@ -45,13 +45,13 @@
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Kode Barang</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control form-control-sm" name="kode" placeholder="Kode Barang..">
+                                    <input type="text" class="form-control form-control-sm" name="kode" placeholder="Kode Barang.." required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label">Nama Barang</label>
                                 <div class="col-sm-8">
-                                    <input type="text" class="form-control form-control-sm" name="nama" placeholder="Nama Barang..">
+                                    <input type="text" class="form-control form-control-sm" name="nama" placeholder="Nama Barang.." required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -190,11 +190,11 @@
                                                     <div class="form-group">
                                                         Kode Barang
                                                         <input type="hidden" name="id" value="<?= $id ?>" class="form-control form-control-sm">
-                                                        <input type="text" name="kobar" value="<?= $kode ?>" class="form-control form-control-sm">
+                                                        <input type="text" name="kobar" value="<?= $kode ?>" class="form-control form-control-sm" required>
                                                     </div>
                                                     <div class="form-group">
                                                         Nama Barang
-                                                        <input type="text" name="nabar" value="<?= $nama ?>" class="form-control form-control-sm">
+                                                        <input type="text" name="nabar" value="<?= $nama ?>" class="form-control form-control-sm" required>
                                                     </div>
                                                     <div class="form-group">
                                                         Kategori Barang

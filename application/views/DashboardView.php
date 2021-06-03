@@ -20,115 +20,57 @@
 	<?php
 	if ($this->session->userdata('akses') == 1) : ?>
 		<div class="container-fluid my-3">
-			<nav>
-				<div class="nav nav-pills" id="nav-tab">
-					<a class="nav-item nav-link active" id="nav-notifikasi-tab" data-toggle="tab" href="#nav-notifikasi" role="tab">Notifikasi</a>
-					<a class="nav-item nav-link" id="nav-daftar-tab" data-toggle="tab" href="#nav-daftar" role="tab">Daftar Karyawan</a>
-				</div>
-			</nav>
-			<div class="tab-content" id="nav-tabContent">
-				<div class="tab-pane fade show active" id="nav-notifikasi" role="tabpanel">
-					<div class="container-fluid my-2"></div>
-					<p class="lead">Selamat datang di Kampoeng Kayoe's Portal</p>
-					<hr />
-					<p class="font-weight-bold">Informasi terkait Hak Akses</p>
-					<div class="table-responsive">
-						<table class="table table-sm">
-							<thead>
-								<th>No</th>
-								<th>Nama</th>
-								<th>Divisi</th>
-								<th>Level Akses</th>
-								<th>Status</th>
-								<th>Opsi</th>
-							</thead>
-							<tbody>
+			<p class="lead">Selamat datang di Kampoeng Kayoe's Portal</p>
+			<hr />
+			<p class="font-weight-bold">Informasi terkait Hak Akses</p>
+			<div class="table-responsive">
+				<table class="table table-sm">
+					<thead>
+						<th>No</th>
+						<th>Nama</th>
+						<th>Divisi</th>
+						<th>Level Akses</th>
+						<th>Status</th>
+						<th>Opsi</th>
+					</thead>
+					<tbody>
+						<?php
+						$no = 0;
+						foreach ($user->result_array() as $a) :
+							$no++;
+							$id = $a['id_user'];
+							$nama = $a['nama_user'];
+							$divisi = $a['nama_divisi'];
+							$lvl = $a['level_akses'];
+							$ket = $a['keterangan'];
+						?>
+							<tr>
+								<td class="text-center align-items-middle"><?= $no ?></td>
+								<td class="align-items-middle"><?= $nama ?></td>
+								<td class="align-items-middle"><?= $divisi ?></td>
 								<?php
-								$no = 0;
-								foreach ($user->result_array() as $a) :
-									$no++;
-									$id = $a['id_user'];
-									$nama = $a['nama_user'];
-									$divisi = $a['nama_divisi'];
-									$lvl = $a['level_akses'];
-									$ket = $a['keterangan'];
-								?>
-									<tr>
-										<td class="text-center align-items-middle"><?= $no ?></td>
-										<td class="align-items-middle"><?= $nama ?></td>
-										<td class="align-items-middle"><?= $divisi ?></td>
-										<?php
-										if ($lvl == 1) : ?>
-											<td class="text-center align-items-middle">Manager</td>
-										<?php elseif ($lvl == 2) : ?>
-											<td class="text-center align-items-middle">Administrator</td>
-										<?php elseif ($lvl == 3) : ?>
-											<td class="text-center align-items-middle">User</td>
-										<?php endif; ?>
-										<td class="align-items-middle font-weight-bold"><?= $ket ?></td>
+								if ($lvl == 1) : ?>
+									<td class="text-center align-items-middle">Manager</td>
+								<?php elseif ($lvl == 2) : ?>
+									<td class="text-center align-items-middle">Administrator</td>
+								<?php elseif ($lvl == 3) : ?>
+									<td class="text-center align-items-middle">User</td>
+								<?php endif; ?>
+								<td class="align-items-middle font-weight-bold"><?= $ket ?></td>
 
-										<td>
-											<a href="<?= base_url() . 'user/set_active_from_dashboard?id=' . $id ?>" class="btn btn-sm btn-success text-white">Aktifkan</a>
-											<a href="<?= base_url() . 'user/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
-										</td>
-									</tr>
-								<?php endforeach; ?>
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="tab-pane fade" id="nav-daftar" role="tabpanel">
-					<div class="container-fluid my-2">
-						<div class="card rounded-0 bg-light" style="height: 490px; overflow-y:auto">
-							<div class="card-body">
-								<h4 class="card-title navy">Daftar Permintaan Karyawan</h4>
-								<div class="card-text">
-									<div class="table-responsive">
-										<table class="table table-sm table-bordered">
-											<thead class="bg-primary text-white">
-												<th class="text-center align-middle">No</th>
-												<th class="text-center align-middle">Tanggal Permintaan</th>
-												<th class="text-center align-middle">Nama Karyawan</th>
-												<th class="text-center align-middle">Tgl Dibutuhkan</th>
-												<th class="text-center align-middle">Keterangan</th>
-												<th class="text-center align-middle">Opsi</th>
-											</thead>
-											<tbody>
-												<?php
-												$no = 0;
-												foreach ($data->result_array() as $a) :
-													$no++;
-													$id = $a['id_permintaan'];
-													$user = $a['nama_karyawan'];
-													$tglpermintaan = date("d-m-Y H:i", strtotime($a['created_at']));
-													$tgl = date("d-m-Y", strtotime($a['tanggal_kebutuhan']));
-													$ket = $a['ket'];
-												?>
-													<tr>
-														<td class="text-center align-middle"><?= $no ?></td>
-														<td class="text-center align-middle"><?= $tglpermintaan ?></td>
-														<td class="align-middle"><?= $user ?></td>
-														<td class="text-center align-middle"><?= $tgl ?></td>
-														<td class="align-middle"><?= $ket ?></td>
-														<td class="text-center align-middle">
-															<a class="btn btn-sm btn-primary" href="<?= base_url() . 'permintaan/detail?id=' . $id ?>"><i class="fa fa-eye" aria-hidden="true"></i> Detail</a>
-															<a class="btn btn-sm btn-danger" href="<?= base_url() . 'permintaan/delete_permintaan?id=' . $id ?>"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>
-														</td>
-													</tr>
-												<?php endforeach; ?>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+								<td>
+									<a href="<?= base_url() . 'user/set_active_from_dashboard?id=' . $id ?>" class="btn btn-sm btn-success text-white">Aktifkan</a>
+									<a href="<?= base_url() . 'user/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
+								</td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	<?php else : ?>
 		<div class="container-fluid my-3">
-			<div class="card rounded-0 bg-light" style="height: 490px; overflow-y:auto">
+			<div class="card rounded-0 bg-light" style="height: 480px; overflow-y:auto">
 				<div class="card-body">
 					<h4 class="card-title navy">Daftar Permintaan Karyawan</h4>
 					<div class="card-text">
