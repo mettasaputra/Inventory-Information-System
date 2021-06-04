@@ -100,8 +100,8 @@
                                             <td class="align-items-middle text-center"><?= $no++; ?></td>
                                             <td class="align-items-middle text-center"><?= $items['kode']; ?></td>
                                             <td class="align-items-middle"><?= $items['name']; ?></td>
-                                            <td class="align-items-middle text-center"><?= $items['units']; ?></td>
                                             <td class="align-items-middle text-center"><?= $items['qty']; ?></td>
+                                            <td class="align-items-middle text-center"><?= $items['units']; ?></td>
                                             <td class="align-items-middle"><?= $items['comment']; ?></td>
                                             <td class="align-items-middle text-center"><a href="<?php echo base_url() . 'penerimaan/remove/' . $items['rowid']; ?>" class="btn btn-info btn-sm"><span class="fa fa-close"></span> Batal</a></td>
                                         </tr>

@@ -25,6 +25,14 @@ class Permintaan extends CI_Controller
         $this->load->view('PermintaanView', $x);
     }
 
+    function karyawan()
+    {
+        $this->cart->destroy();
+        $x['user'] = $this->mastermodel->get_user();
+        $x['brg'] = $this->mastermodel->get_data_barang();
+        $this->load->view('PermintaanView', $x);
+    }
+
     function detail_permintaan()
     {
         $this->cart->destroy();

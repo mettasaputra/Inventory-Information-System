@@ -20,7 +20,7 @@
                 <a class="nav-link text-white" href="<?= base_url() . 'pengeluaran' ?>">Pengeluaran</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="<?= base_url() . 'permintaan' ?>">Permintaan</a>
+                <a class="nav-link text-white" href="<?= base_url() . 'permintaan/karyawan' ?>">Permintaan</a>
             </li>
         </ul>
 

@@ -3,6 +3,9 @@ error_reporting(0);
 $b = $brg->row_array();
 $data = array();
 foreach ($this->cart->contents() as $items) {
+    if ($items['kode'] == $b['kode_barang']) {
+        $qty = $items['qty'];
+    }
     $data[$items['brg']] = $items['qty'];
 }
 ?>
@@ -15,10 +18,10 @@ foreach ($this->cart->contents() as $items) {
     </div>
     <label class="col-sm-2 col-form-label text-right">Stok</label>
     <div class="col-sm-3">
-        <input type="text" value="<?php if (($b['stok'] - $data[$b['kode_barang']]) < 0) {
+        <input type="text" value="<?php if (($b['stok'] - $data[$b['brg']]) < 0) {
                                         echo '';
                                     } else {
-                                        echo $b['stok'] - $data[$b['kode_barang']];
+                                        echo $b['stok'] - $qty;
                                     } ?>" class="form-control" readonly>
     </div>
 </div>
