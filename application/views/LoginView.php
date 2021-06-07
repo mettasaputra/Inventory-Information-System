@@ -98,11 +98,12 @@
                                             Nama
                                             <select name="nama" class="form-control form-control-sm">
                                                 <?php
-                                                $sql = $this->db->query("SELECT nama_karyawan FROM karyawan WHERE NOT EXISTS (SELECT nama_user FROM user WHERE karyawan.nama_karyawan = user.nama_user)");
+                                                $sql = $this->db->query("SELECT nik,nama_karyawan FROM karyawan WHERE NOT EXISTS (SELECT nama_user FROM user WHERE karyawan.nama_karyawan = user.nama_user)");
                                                 foreach ($sql->result_array() as $data) :
+                                                    $nik = $data['nik'];
                                                     $nama = $data['nama_karyawan'];
                                                 ?>
-                                                    <option value="<?= $nama ?>"><?= $nama ?></option>
+                                                    <option value="<?= $nama ?>"><?= $nik ?> - <?= $nama ?></option>
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>

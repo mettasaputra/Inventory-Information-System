@@ -36,6 +36,12 @@
                             <form action="<?= base_url() . 'karyawan/input_data' ?>" method="POST">
                                 <div class="modal-body">
                                     <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label">NIK</label>
+                                        <div class="col-sm-8">
+                                            <input type="text" maxlength="8" class="form-control form-control-sm" name="nik" placeholder="Nomor Induk Karyawan.." required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">Nama Karyawan</label>
                                         <div class="col-sm-8">
                                             <input type="text" class="form-control form-control-sm" name="nama" placeholder="Nama Karyawan.." required>
@@ -75,6 +81,7 @@
             <table class="table table-sm table-bordered table-striped">
                 <thead>
                     <th class="text-center font-weight-normal">No</th>
+                    <th class="text-center font-weight-normal">NIK</th>
                     <th class="text-center font-weight-normal">Nama Karyawan</th>
                     <th class="text-center font-weight-normal">Divisi</th>
                     <th class="text-center font-weight-normal">Opsi</th>
@@ -85,11 +92,13 @@
                     foreach ($dt->result_array() as $a) :
                         $no++;
                         $id = $a['id_karyawan'];
+                        $nik = $a['nik'];
                         $nama = $a['nama_karyawan'];
                         $divisi = $a['nama_divisi'];
                     ?>
                         <tr>
                             <td class="text-center align-items-middle"><?= $no ?></td>
+                            <td class="text-center align-items-middle"><?= $nik ?></td>
                             <td class="align-items-middle"><?= $nama ?></td>
                             <td class="align-items-middle"><?= $divisi ?></td>
                             <td class="text-center align-items-middle">

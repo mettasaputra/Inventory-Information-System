@@ -30,12 +30,6 @@
             <tr>
                 <td style="text-align: left; border:none; font-weight: bold; font-size:18pt" colspan="8">Laporan Stok Bulan <?= date("F Y", strtotime($this->session->userdata('bln'))); ?></td>
             </tr>
-            <tr>
-            <tr>
-                <td colspan="4" style="text-align: left; border:none">Tanggal Cetak : <?= Date('d-m-Y H:i') ?></td>
-                <td colspan="4" style="text-align: left; border:none">Dicetak oleh : <?= $this->session->userdata('nama') ?></td>
-            </tr>
-            </tr>
         </table>
         <div class="row">
             <div class="table-responsive my-3">
@@ -93,6 +87,11 @@
                 </table>
             </div>
         </div>
+        <p>Tanggal Cetak : <?= Date('d-m-Y H:i') ?></p>
+        <p>Dicetak dan divalidasi oleh,</p>
+        <p style="height:30px"></p>
+        <p><?= $this->session->userdata('nama') ?></p>
+
     </div>
     <script src="<?= base_url() . 'assets/js/jquery-3.5.1.js' ?>" type="text/javascript"></script>
     <script src="<?= base_url() . 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' ?>" type="text/javascript"></script>

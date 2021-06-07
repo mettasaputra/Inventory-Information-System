@@ -21,8 +21,9 @@ class Karyawan extends CI_Controller
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $nama = $this->input->post('nama');
+            $nik = $this->input->post('nik');
             $divisi = $this->input->post('divisi');
-            $this->mastermodel->input_karyawan($nama, $divisi);
+            $this->mastermodel->input_karyawan($divisi, $nama, $nik);
             redirect('master/karyawan');
         } else {
             redirect('Custom404');
