@@ -37,7 +37,8 @@ class Supplier extends CI_Controller
             $id = $this->input->post('id');
             $ctc = $this->input->post('ctc');
             $telp = $this->input->post('telp');
-            $this->mastermodel->update_supplier($ctc, $telp, $id);
+            $alamat = $this->input->post('alamat');
+            $this->mastermodel->update_supplier($ctc, $telp, $id, $alamat);
             redirect('master/supplier');
         } else {
             redirect('Custom404');

@@ -61,7 +61,7 @@ class Barang extends CI_Controller
             $x['brg'] = $this->mastermodel->get_detail_barang($id);
             $x['data'] = $this->mastermodel->kartu_stok($id);
             header("Content-type: application/vnd-ms-excel");
-            header("Content-Disposition: attachment; filename=a.xls");
+            header("Content-Disposition: attachment; filename=Kartu Stock.xls");
             $this->load->view('laporan/CetakKartuStock', $x);
         } else {
             redirect('Custom404');

@@ -66,9 +66,9 @@ class MasterModel extends CI_Model
         $this->db->query("INSERT into supplier(nama_supplier, contact_person, no_telp, alamat) VALUES ('$nama','$ctc','$telp','$alamat')");
     }
 
-    function update_supplier($ctc, $telp, $id)
+    function update_supplier($ctc, $telp, $id, $alamat)
     {
-        $this->db->query("UPDATE supplier SET contact_person='$ctc',no_telp='$telp' WHERE id_supplier='$id'");
+        $this->db->query("UPDATE supplier SET contact_person='$ctc',no_telp='$telp', alamat='$alamat' WHERE id_supplier='$id'");
     }
 
     function delete_supplier($id)

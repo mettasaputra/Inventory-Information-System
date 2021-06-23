@@ -50,7 +50,7 @@
                                     <div class="form-group row">
                                         <label class="col-sm-4 col-form-label">No Telp</label>
                                         <div class="col-sm-8">
-                                            <input type="text" class="form-control form-control-sm" name="telp" placeholder="No Telp..">
+                                            <input type="text" maxlength="13" class="form-control form-control-sm" name="telp" placeholder="No Telp..">
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -129,7 +129,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label">Alamat Supplier</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" class="form-control form-control-sm" value="<?= $alamat ?>">
+                                                            <input type="text" class="form-control form-control-sm" name="alamat" value="<?= $alamat ?>">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -141,7 +141,7 @@
                                                     <div class="form-group row">
                                                         <label class="col-sm-4 col-form-label">Telp</label>
                                                         <div class="col-sm-8">
-                                                            <input type="text" class="form-control form-control-sm" name="telp" value="<?= $telp ?>">
+                                                            <input type="text" maxlength="13" class="form-control form-control-sm" name="telp" value="<?= $telp ?>">
                                                         </div>
                                                     </div>
                                                 </div>
