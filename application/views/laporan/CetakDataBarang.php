@@ -36,7 +36,7 @@
                 ?>
                     <td style="text-align: left; border:none; font-weight: bold; font-size:18pt" colspan="8">Data Barang</td>
                 <?php else : ?>
-                    <td style="text-align: left; border:none; font-weight: bold; font-size:18pt" colspan="8">Data Barang <?= $dt['nama_kategori'] ?></td>
+                    <td style="text-align: left; border:none; font-weight: bold; font-size:18pt" colspan="8">Data Barang <?= $dt['kat'] ?></td>
                 <?php endif; ?>
             </tr>
         </table>

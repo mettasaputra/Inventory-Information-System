@@ -87,10 +87,29 @@ class Permintaan extends CI_Controller
 
     function remove()
     {
-        $id = $this->input->get('id');
-        $idbrg = $this->input->get('idbrg');
-        $this->transaksimodel->delete($idbrg, $id);
-        redirect('permintaan/detail?id=' . $id);
+        $cek = count($this->cart->contents());
+        if ($cek == 1) {
+            if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
+                $id = $this->input->get('id');
+                $this->transaksimodel->deletepermintaan($id);
+                echo "<script>
+                alert('Anda menghapus seluruh item, data permintaan akan dihapus!');
+                window.location.href='/portal/dashboard';
+            </script>";
+            } else {
+                $id = $this->input->get('id');
+                $this->transaksimodel->deletepermintaan($id);
+                echo "<script>
+                alert('Anda menghapus seluruh item, data permintaan akan dihapus!');
+                window.location.href='/portal/permintaan/detail_permintaan';
+            </script>";
+            }
+        } else {
+            $id = $this->input->get('id');
+            $idbrg = $this->input->get('idbrg');
+            $this->transaksimodel->delete($idbrg, $id);
+            redirect('permintaan/detail?id=' . $id);
+        }
     }
 
     function permintaan_karyawan()

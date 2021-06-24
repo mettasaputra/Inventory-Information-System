@@ -15,7 +15,7 @@ class MasterModel extends CI_Model
 
     function cetak_data_barang($id)
     {
-        return $this->db->query("SELECT barang.*, kategori.nama_kategori FROM barang JOIN kategori ON barang.id_kategori = kategori.id_kategori WHERE barang.id_kategori = '$id' ORDER BY barang.kode_barang ASC");
+        return $this->db->query("SELECT barang.*, kategori.nama_kategori as kat FROM barang JOIN kategori ON barang.id_kategori = kategori.id_kategori WHERE barang.id_kategori = '$id' ORDER BY barang.kode_barang ASC");
     }
 
     function update_data($id, $nama, $kode, $kat, $satuan)

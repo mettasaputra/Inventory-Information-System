@@ -43,6 +43,6 @@ class Karyawan extends CI_Controller
     {
         $id = $this->input->get('id');
         $this->mastermodel->delete_karyawan($id);
-        redirect('master/karyawab');
+        redirect('master/karyawan');
     }
 }
