@@ -35,7 +35,8 @@ class Barang extends CI_Controller
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $id = $this->input->get('id');
-            $this->mastermodel->delete_data($id);
+            $nama = $this->input->get('nama');
+            $this->mastermodel->delete_data($id, $nama);
             redirect('master/barang');
         } else {
             redirect('Custom404');

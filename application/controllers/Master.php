@@ -26,6 +26,16 @@ class Master extends CI_Controller
         }
     }
 
+    function historydata()
+    {
+        if ($this->session->userdata('akses') == '1') {
+            $x['data'] = $this->mastermodel->tracking_history();
+            $this->load->view('DataHistoryView', $x);
+        } else {
+            redirect('Custom404');
+        }
+    }
+
     function barang()
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {

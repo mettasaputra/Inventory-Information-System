@@ -51,9 +51,16 @@ class MasterModel extends CI_Model
         $this->db->query("INSERT INTO barang(kode_barang, nama_barang, id_kategori,satuan,stok) VALUES ('$kode','$nama','$kat','$satuan',0)");
     }
 
-    function delete_data($id)
+    function delete_data($id, $nama)
     {
+        $akses = $this->session->userdata('idadmin');
         $this->db->query("DELETE FROM barang WHERE id_barang='$id'");
+        $this->db->query("INSERT INTO history(nama_data, pengguna) VALUES ('$nama','$akses')");
+    }
+
+    function tracking_history()
+    {
+        return $this->db->query("SELECT history.*, user.nama_user FROM history JOIN user ON history.pengguna = user.id_user");
     }
 
     function get_data_supplier()
@@ -71,9 +78,11 @@ class MasterModel extends CI_Model
         $this->db->query("UPDATE supplier SET contact_person='$ctc',no_telp='$telp', alamat='$alamat' WHERE id_supplier='$id'");
     }
 
-    function delete_supplier($id)
+    function delete_supplier($id, $nama)
     {
+        $akses = $this->session->userdata('idadmin');
         $this->db->query("DELETE FROM supplier WHERE id_supplier='$id'");
+        $this->db->query("INSERT INTO history(nama_data, pengguna) VALUES ('$nama','$akses')");
     }
 
     function get_data_karyawan()
@@ -91,9 +100,11 @@ class MasterModel extends CI_Model
         $this->db->query("UPDATE karyawan SET id_divisi='$divisi', nama_karyawan='$nama' WHERE id_karyawan='$id'");
     }
 
-    function delete_karyawan($id)
+    function delete_karyawan($id, $nama)
     {
+        $akses = $this->session->userdata('idadmin');
         $this->db->query("DELETE FROM karyawan WHERE id_karyawan='$id'");
+        $this->db->query("INSERT INTO history(nama_data, pengguna) VALUES ('$nama','$akses')");
     }
 
     function get_user()

@@ -37,8 +37,11 @@
                     </span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-left w-50" aria-labelledby="triggerId">
+                    <?php
+                    if ($this->session->userdata('akses') == 1) : ?>
+                        <a class='nav-link' href="<?= Base_url() . 'master/historydata' ?>">History Hapus Data</a>
+                    <?php endif; ?>
                     <a class='nav-link' href="<?= Base_url() . 'administrator/logout' ?>">Logout</a>
-                    <div class="dropdown-divider"></div>
                 </div>
             </div>
         </ul>

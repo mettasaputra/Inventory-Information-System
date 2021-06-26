@@ -42,7 +42,8 @@ class Karyawan extends CI_Controller
     function delete_data()
     {
         $id = $this->input->get('id');
-        $this->mastermodel->delete_karyawan($id);
+        $nama = $this->input->get('nama');
+        $this->mastermodel->delete_karyawan($id, $nama);
         redirect('master/karyawan');
     }
 }

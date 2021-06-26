@@ -49,7 +49,8 @@ class Supplier extends CI_Controller
     {
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $id = $this->input->get('id');
-            $this->mastermodel->delete_supplier($id);
+            $nama = $this->input->get('nama');
+            $this->mastermodel->delete_supplier($id, $nama);
             redirect('master/supplier');
         } else {
             redirect('Custom404');

@@ -173,7 +173,7 @@
                                 <a href="#" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modelId<?= $id ?>">
                                     <i class="fas fa-pen    "></i> Edit
                                 </a>
-                                <a href="<?= base_url() . 'barang/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>
+                                <a href="<?= base_url() . 'barang/delete_data?id=' . $id . '&nama=' . $nama ?>" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i> Hapus</a>
 
 
                                 <div class="modal fade" id="modelId<?= $id ?>" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">

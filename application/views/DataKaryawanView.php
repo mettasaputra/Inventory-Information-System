@@ -102,7 +102,7 @@
                             <td class="align-items-middle"><?= $nama ?></td>
                             <td class="align-items-middle"><?= $divisi ?></td>
                             <td class="text-center align-items-middle">
-                                <a href="<?= base_url() . 'karyawan/delete_data?id=' . $id ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                <a href="<?= base_url() . 'karyawan/delete_data?id=' . $id . '&nama=' . $nama ?>" class="btn btn-sm btn-danger">Hapus</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
