@@ -51,6 +51,23 @@ class MasterModel extends CI_Model
         $this->db->query("INSERT INTO barang(kode_barang, nama_barang, id_kategori,satuan,stok) VALUES ('$kode','$nama','$kat','$satuan',0)");
     }
 
+    function get_id_barang($id)
+    {
+        return $this->db->query("SELECT id_barang FROM detail_penerimaan WHERE id_barang='$id' UNION ALL SELECT id_barang FROM
+        detail_pengeluaran WHERE id_barang='$id'");
+    }
+
+    function get_id_karyawan($id)
+    {
+        return $this->db->query("SELECT id_karyawan FROM penerimaan WHERE id_karyawan='$id' UNION ALL SELECT request_by FROM
+        pengeluaran WHERE request_by='$id'");
+    }
+
+    function get_id_supplier($id)
+    {
+        return $this->db->query("SELECT id_supplier FROM penerimaan WHERE id_supplier='$id'");
+    }
+
     function delete_data($id, $nama)
     {
         $akses = $this->session->userdata('idadmin');
@@ -77,6 +94,7 @@ class MasterModel extends CI_Model
     {
         $this->db->query("UPDATE supplier SET contact_person='$ctc',no_telp='$telp', alamat='$alamat' WHERE id_supplier='$id'");
     }
+
 
     function delete_supplier($id, $nama)
     {

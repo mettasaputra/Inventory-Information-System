@@ -36,8 +36,17 @@ class Barang extends CI_Controller
         if (($this->session->userdata('akses') == '1') || ($this->session->userdata('akses') == '2')) {
             $id = $this->input->get('id');
             $nama = $this->input->get('nama');
-            $this->mastermodel->delete_data($id, $nama);
-            redirect('master/barang');
+            $data = $this->mastermodel->get_id_barang($id);
+            $cek = $data->num_rows();
+            if ($cek > 0) {
+                echo "<script>
+                alert('Data tidak bisa dihapus karena ada transaksi!');
+                window.location.href='/portal/master/barang';
+            </script>";
+            } else {
+                $this->mastermodel->delete_data($id, $nama);
+                redirect('master/barang');
+            }
         } else {
             redirect('Custom404');
         }

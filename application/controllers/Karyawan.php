@@ -43,7 +43,16 @@ class Karyawan extends CI_Controller
     {
         $id = $this->input->get('id');
         $nama = $this->input->get('nama');
-        $this->mastermodel->delete_karyawan($id, $nama);
-        redirect('master/karyawan');
+        $data = $this->mastermodel->get_id_karyawan($id);
+        $cek = $data->num_rows();
+        if ($cek > 0) {
+            echo "<script>
+                alert('Data tidak bisa dihapus karena ada transaksi!');
+                window.location.href='/portal/master/karyawan';
+            </script>";
+        } else {
+            $this->mastermodel->delete_karyawan($id, $nama);
+            redirect('master/karyawan');
+        }
     }
 }
